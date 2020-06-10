@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>太鼓曲目抽奖页面</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./static/css/normalize.css?ver=8.0.1">
+    <link rel="stylesheet" href="./static/css/style.css?ver=2019122302">
+    <script src="./static/js/jquery-3.4.1.min.js"></script>
+    <script src="./static/js/script.js?ver=2020010901"></script>
+</head>
+
+<body>
+    <script>
+        // https 网页内跳转，能 HSTS 的就最好不用这个啦
+        // if (location.protocol != 'https:') {
+        //     location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        // }
+    </script>
+    <div class="main-body">
+        <div class="result">
+            <p lang="ja" id="result-name" class="result-name">先设置才能抽奖</p>
+            <p id="result-name-cn" class="result-name-cn">没加防呆，请勿乱填</p>
+            <p class="result-level"><span id="result-category">没有分类</span> - <span id="result-level-name">难度</span>：★x
+                <span id="result-level-num">99</span>
+            </p>
+        </div>
+        <div class="roll">
+            <button id="roll-button" class="roll-button" disabled>抽选曲目</button>
+        </div>
+        <div class="option">
+            <button id="option-button" class="option-button">条件设置</button>
+        </div>
+        <div class="option-show">
+            <p><strong>抽取难度</strong>：<span id="option-show-difficulty">未设置</span></p>
+            <p><strong>抽取星级</strong>：<span id="option-show-level-num-min">0</span> ~ <span
+                    id="option-show-level-num-max">0</span></p>
+            <p><strong>歌单选择</strong>：<span id="option-show-songlist">未选择</span></p>
+        </div>
+        <div class="footer">
+            <p>Dirty but work!</p>
+            <p>未加防呆设置，错误的参数会导致设备卡顿！</p>
+            <p>ver 0.40-2020010902</p>
+            <p><a href="https://github.com/eiko-g/taiko-roll" target="_blank">GayHub</a></p>
+        </div>
+    </div>
+
+    <div class="option-main">
+        <div class="option-body">
+            <form id="option-form">
+                <h2 class="option-main-title">条件设置</h2>
+                <h3 class="option-title">包含难度</h3>
+                <div class="level-select">
+                    <input type="radio" class="level-input easy" name="抽取难度" id="level-easy" value="easy">
+                    <label for="level-easy" class="level-label">梅</label>
+
+                    <input type="radio" class="level-input normal" name="抽取难度" id="level-normal" value="normal">
+                    <label for="level-normal" class="level-label">竹</label>
+
+                    <input type="radio" class="level-input hard" name="抽取难度" id="level-hard" value="hard">
+                    <label for="level-hard" class="level-label">松</label>
+
+                    <input type="radio" class="level-input oni" name="抽取难度" id="level-oni" value="oni" checked>
+                    <label for="level-oni" class="level-label">鬼</label>
+                </div>
+
+                <h3 class="option-title">包含等级</h3>
+                <div class="level-num">
+                    <label for="level-num-min" class="level-num-label">最低等级：</label>
+                    <input type="number" class="level-num-input" name="最低等级" id="level-num-min" min="1" max="10"
+                        step="1" placeholder="1~10" required>
+                </div>
+                <div class="level-num">
+                    <label for="level-num-min" class="level-num-label">最高等级：</label>
+                    <input type="number" class="level-num-input" name="最高等级" id="level-num-max" min="1" max="10"
+                        step="1" placeholder="1~10" required>
+                </div>
+
+                <h3 class="option-title">曲目列表选择</h3>
+                <div class="songlist-selection">
+                    <input type="radio" name="已选歌单" id="songlist-taiko14old" value="taiko14old"
+                        class="songlist-selection-input">
+                    <label for="songlist-taiko14old" class="songlist-selection-label taiko14old">旧框 14 旧基准</label>
+
+                    <input type="radio" name="已选歌单" id="songlist-taiko14new" value="taiko14new"
+                        class="songlist-selection-input">
+                    <label for="songlist-taiko14new" class="songlist-selection-label taiko14new">旧框 14
+                        <strong>新</strong>基准</label>
+
+                    <input type="radio" name="已选歌单" id="songlist-taikomomoiroSP" value="taikomomoiroSP"
+                        class="songlist-selection-input">
+                    <label for="songlist-taikomomoiroSP"
+                        class="songlist-selection-label taiko-momoiroSP">摸摸衣裸SP（20191130整理）</label>
+
+                    <input type="radio" name="已选歌单" id="songlist-taikoRedSP" value="taikoRedSP"
+                        class="songlist-selection-input" checked>
+                    <label for="songlist-taikoRedSP"
+                        class="songlist-selection-label taiko-RedSP">RedSP（20191223整理）</label>
+                </div>
+                <button id="close-option" class="option-button">保存设置</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

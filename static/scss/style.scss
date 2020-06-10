@@ -1,0 +1,207 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: url('../img/bg.jpg') top center;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #21a1ba;
+}
+
+.main-body {
+    padding: 30px;
+    margin: auto;
+    max-width: 600px;
+
+    .result {
+        border: 5px #FFD81E solid;
+        background-color: #fff;
+        padding: 15px;
+        box-shadow: 0 0 5px #999;
+        text-align: center;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        &-name {
+            color: #EC1E06;
+            font-size: 32px;
+            line-height: 1.2;
+        }
+
+        &-name-cn {
+            color: #333;
+            font-size: 24px;
+            line-height: 1.5;
+        }
+
+        &-level {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    }
+
+    .roll {
+        margin-top: 30px;
+
+        &-button {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            color: #fff;
+            background-color: #EC1E06;
+            border: 3px solid #ffa66b;
+            border-right-color: #b53000;
+            border-bottom-color: #b53000;
+            outline: none;
+
+            &:active {
+                border-color: #b53000;
+                background-color: #b53000;
+            }
+
+            &[disabled] {
+                opacity: .7;
+            }
+        }
+    }
+
+    .footer {
+        color: #333;
+        font-size: 14px;
+        text-align: right;
+    }
+}
+
+.option-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, .5);
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s;
+
+    &.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    @at-root {
+        .option-button {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            color: #fff;
+            background-color: #21a1ba;
+            border: 3px solid #7DC5D4;
+            border-right-color: #0C6472;
+            border-bottom-color: #0C6472;
+            margin-top: 15px;
+        }
+    }
+
+    .option-body {
+        width: 100%;
+        max-width: 600px;
+        height: 100%;
+        max-height: calc(100vh - 60px);
+        padding: 15px;
+        border: 5px solid #ffd81e;
+        background-color: #fff;
+        margin: auto;
+        overflow-y: scroll;
+
+        .option-main-title {
+            font-size: 24px;
+            text-align: center;
+            color: #EC1E06;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .level-select {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .level-input {
+                display: none;
+
+                &.easy:checked+.level-label {
+                    border-color: #ff1c00;
+                }
+
+                &.normal:checked+.level-label {
+                    border-color: #8fb549;
+                }
+
+                &.hard:checked+.level-label {
+                    border-color: #3a431e;
+                }
+
+                &.oni:checked+.level-label {
+                    border-color: #EE098F;
+                }
+            }
+
+            .level-label {
+                background-color: #fff;
+                border: 3px solid #CCC;
+                padding: 10px 15px;
+                margin: 10px 0;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+
+        .level-num {
+            margin: 10px 0;
+
+            &-input {
+                width: 5em;
+                border: 3px solid #ccc;
+                padding: 5px;
+                outline: none;
+
+                &:focus {
+                    border-color: #EC1E06;
+                }
+            }
+        }
+
+        .songlist-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            &-input {
+                display: none;
+
+                &:checked+.songlist-selection-label {
+                    border-color: #EC1E06;
+                }
+            }
+
+            &-label {
+                background-color: #fff;
+                border: 3px solid #CCC;
+                padding: 10px 15px;
+                margin: 10px 0;
+                font-size: 18px;
+            }
+        }
+    }
+}
