@@ -38,11 +38,7 @@
             </div>
 
             <div class="setting-area">
-                <button
-                    id="roll-button"
-                    class="roll-button"
-                    disabled="disabled"
-                >
+                <button id="roll-button" class="roll-button" disabled>
                     Let's 牛乳 Dance!
                 </button>
                 <button id="setting-button" class="setting-button">
@@ -59,6 +55,100 @@
                     歌单选择：
                     <span id="setting-songlist">未设置</span>
                 </p>
+            </div>
+        </div>
+
+        <div class="option-main">
+            <div class="option-body">
+                <form id="option-form">
+                    <h2 class="option-main-title">抽奖设置</h2>
+                    <div class="option-block lv">
+                        <h3 class="option-title">包含等级</h3>
+                        <div class="option-block-lv">
+                            <label for="lv-min" class="option-label">
+                                最低等级：
+                            </label>
+                            <input
+                                type="number"
+                                class="option-input"
+                                id="lv-min"
+                                name="lv-min"
+                                placeholder="仅数字"
+                                min="1"
+                                max="15"
+                                required="required"
+                            />
+                        </div>
+
+                        <div class="option-block-lv">
+                            <label for="lv-min-plus" class="option-label">
+                                <input
+                                    type="checkbox"
+                                    id="lv-min-plus"
+                                    name="lv-min-plus"
+                                    class="option-check"
+                                />
+                                最低等级带 + 号
+                            </label>
+                        </div>
+
+                        <div class="option-block-lv">
+                            <label for="lv-max" class="option-label">
+                                最高等级：
+                            </label>
+                            <input
+                                type="number"
+                                class="option-input"
+                                id="lv-max"
+                                name="lv-max"
+                                placeholder="仅数字"
+                                min="1"
+                                max="15"
+                                required="required"
+                            />
+                        </div>
+
+                        <div class="option-block-lv">
+                            <label for="lv-max-plus" class="option-label">
+                                <input
+                                    type="checkbox"
+                                    id="lv-max-plus"
+                                    name="lv-max-plus"
+                                    class="option-check"
+                                />
+                                最高等级带 + 号
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-block songlist">
+                        <h3 class="option-title">选择歌单</h3>
+                        <div class="option-block-songlist">
+                            <div class="songlist-item">
+                                <input
+                                    type="radio"
+                                    name="songlist"
+                                    id="songlist-maimaidxplus"
+                                    value="maimaidxplus"
+                                    checked="checked"
+                                />
+                                <label
+                                    for="songlist-maimaidxplus"
+                                    class="songlist-label"
+                                >
+                                    maimaiDX+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input
+                        id="save-option"
+                        class="save-option"
+                        type="submit"
+                        value="保存设置"
+                    />
+                </form>
             </div>
         </div>
     </body>
