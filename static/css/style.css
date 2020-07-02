@@ -44,6 +44,21 @@ a {
   line-height: 1.5;
   margin: 0;
 }
+.main-body .result-area .song-info #lv-name.B {
+  background-color: #ccffcc;
+}
+.main-body .result-area .song-info #lv-name.A {
+  background-color: #ffdd99;
+}
+.main-body .result-area .song-info #lv-name.E {
+  background-color: #ffccf7;
+}
+.main-body .result-area .song-info #lv-name.M {
+  background-color: #eeccff;
+}
+.main-body .result-area .song-info #lv-name.R {
+  background-color: #e9e6ff;
+}
 .main-body .setting-area {
   margin: 20px auto;
 }
@@ -74,6 +89,11 @@ a {
   background-color: #82d0ce;
   border: 3px solid #259bc6;
   text-shadow: 0px 2px 2px #259bc6, 2px 0px 2px #259bc6, -2px 0px 2px #259bc6, 0px -2px 2px #259bc6;
+}
+.main-body .footer {
+  color: #666;
+  font-size: 12px;
+  text-align: center;
 }
 
 .option-main {
@@ -129,6 +149,22 @@ a {
 }
 .option-main .option-body .option-block .option-block-lv input[type=number]:focus {
   border-color: #259bc6;
+}
+.option-main .option-body .save-option {
+  display: block;
+  width: 200px;
+  margin: auto;
+  background-color: transparent;
+  border: 0;
+  font-size: 24px;
+  color: #fff;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 99em;
+  cursor: pointer;
+  background-color: #82d0ce;
+  border: 3px solid #259bc6;
+  text-shadow: 0px 2px 2px #259bc6, 2px 0px 2px #259bc6, -2px 0px 2px #259bc6, 0px -2px 2px #259bc6;
 }
 
 /*# sourceMappingURL=style.css.map */

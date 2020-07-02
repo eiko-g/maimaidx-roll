@@ -27,7 +27,7 @@
                     id="cover"
                     class="cover-img"
                 />
-                <h3 id="title" class="song-title" lang="ja-jp">油沈么呢？</h3>
+                <h3 id="title" class="song-title" lang="ja-jp">油婶么呢？</h3>
                 <p class="song-info">
                     <span id="category" class="song-cat">分类</span>
                     -
@@ -56,6 +56,19 @@
                     <span id="setting-songlist">未设置</span>
                 </p>
             </div>
+
+            <div class="footer">
+                <p>ver Test.20200703</p>
+                <p>
+                    <a
+                        href="https://github.com/eiko-g/maimaidx-roll"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GayHub
+                    </a>
+                </p>
+            </div>
         </div>
 
         <div class="option-main">
@@ -63,16 +76,16 @@
                 <form id="option-form">
                     <h2 class="option-main-title">抽奖设置</h2>
                     <div class="option-block lv">
-                        <h3 class="option-title">包含等级</h3>
+                        <h3 class="option-title">等级设置</h3>
                         <div class="option-block-lv">
                             <label for="lv-min" class="option-label">
-                                最低等级：
+                                等级：
                             </label>
                             <input
                                 type="number"
                                 class="option-input"
-                                id="lv-min"
-                                name="lv-min"
+                                id="lv"
+                                name="等级"
                                 placeholder="仅数字"
                                 min="1"
                                 max="15"
@@ -81,42 +94,14 @@
                         </div>
 
                         <div class="option-block-lv">
-                            <label for="lv-min-plus" class="option-label">
+                            <label for="lv-plus" class="option-label">
                                 <input
                                     type="checkbox"
-                                    id="lv-min-plus"
-                                    name="lv-min-plus"
+                                    id="lv-plus"
+                                    name="等级带加号"
                                     class="option-check"
                                 />
-                                最低等级带 + 号
-                            </label>
-                        </div>
-
-                        <div class="option-block-lv">
-                            <label for="lv-max" class="option-label">
-                                最高等级：
-                            </label>
-                            <input
-                                type="number"
-                                class="option-input"
-                                id="lv-max"
-                                name="lv-max"
-                                placeholder="仅数字"
-                                min="1"
-                                max="15"
-                                required="required"
-                            />
-                        </div>
-
-                        <div class="option-block-lv">
-                            <label for="lv-max-plus" class="option-label">
-                                <input
-                                    type="checkbox"
-                                    id="lv-max-plus"
-                                    name="lv-max-plus"
-                                    class="option-check"
-                                />
-                                最高等级带 + 号
+                                等级带 + 号
                             </label>
                         </div>
                     </div>
@@ -127,7 +112,7 @@
                             <div class="songlist-item">
                                 <input
                                     type="radio"
-                                    name="songlist"
+                                    name="歌单"
                                     id="songlist-maimaidxplus"
                                     value="maimaidxplus"
                                     checked="checked"
@@ -136,7 +121,7 @@
                                     for="songlist-maimaidxplus"
                                     class="songlist-label"
                                 >
-                                    maimaiDX+
+                                    maimaiDX+(JP，暂未最新)
                                 </label>
                             </div>
                         </div>
