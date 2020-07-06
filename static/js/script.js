@@ -90,6 +90,14 @@ docReady(() => {
             'maimaidxplus': 'maimaiDX+ 日版',
             'maimaidxcn': 'maimaiDX 中国版'
         },
+        分类名 = {
+            'pops_anime': '动画 & 流行',
+            'niconico': 'nico & V家',
+            'toho': '东方 Project',
+            'variety': '联动',
+            'maimai': 'maimai 原创',
+            'gekichu': '音击 & 中二'
+        },
         难度名 = {
             B: 'Basic',
             A: 'Advanced',
@@ -211,7 +219,7 @@ docReady(() => {
             抽到的歌 = 抽奖歌单[随机数];
         console.log(抽到的歌);
         getEl('#title').textContent = 抽到的歌.曲名;
-        getEl('#category').textContent = 抽到的歌.分类;
+        getEl('#category').textContent = 分类名[抽到的歌.分类];
         let temp = {};
         if (设置.等级带加号) {
             temp.lv = 设置.等级 + '+';
@@ -223,5 +231,10 @@ docReady(() => {
         getEl('#lv-name').classList.add(temp.lvName);
         getEl('#lv-name').textContent = 难度名[temp.lvName];
         getEl('#lv-num').textContent = temp.lv;
+        if (抽到的歌.封面 != '') {
+            getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
+        } else {
+            getEl('#cover').setAttribute('src', './static/img/nocover.png');
+        }
     });
 });
