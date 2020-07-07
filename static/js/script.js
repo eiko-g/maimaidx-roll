@@ -196,12 +196,22 @@ docReady(() => {
             return result;
         }
         抽奖歌单 = 抽奖歌单.filter(筛选歌单);
+        // 打乱一下歌单，避免浏览器的伪随机影响
+        shuffleArray(抽奖歌单);
         console.log('筛选后的抽奖歌单：', 抽奖歌单);
 
         event.preventDefault();
         return false;
     });
     //#endregion
+
+    // 打乱数组，来自：https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
 
     function 抽取(最小值, 最大值) {
         let 抽取数 = 最大值 - 最小值 + 1;
