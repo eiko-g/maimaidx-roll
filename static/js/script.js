@@ -231,6 +231,7 @@ docReady(() => {
         getEl('#lv-name').classList.add(temp.lvName);
         getEl('#lv-name').textContent = 难度名[temp.lvName];
         getEl('#lv-num').textContent = temp.lv;
+        getEl('#type').textContent = 抽到的歌.类型;
         if (抽到的歌.封面 != '') {
             getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
         } else {
