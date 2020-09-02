@@ -94,7 +94,7 @@ docReady(() => {
             'pops_anime': '动画 & 流行',
             'niconico': 'nico & V家',
             'toho': '东方 Project',
-            'variety': '联动',
+            'variety': '游戏 & 联动',
             'maimai': 'maimai 原创',
             'gekichu': '音击 & 中二'
         },
