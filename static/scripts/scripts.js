@@ -247,5 +247,12 @@ docReady(() => {
         } else {
             getEl('#cover').setAttribute('src', './static/img/nocover.png');
         }
+        getEl('#table-lv-num-B').textContent = 抽到的歌.等级.B;
+        getEl('#table-lv-num-A').textContent = 抽到的歌.等级.A;
+        getEl('#table-lv-num-E').textContent = 抽到的歌.等级.E;
+        getEl('#table-lv-num-M').textContent = 抽到的歌.等级.M;
+        getEl('#table-lv-num-R').textContent = 抽到的歌.等级.R;
     });
 });
+
+//# sourceMappingURL=scripts.js.map

@@ -26,6 +26,7 @@ a {
 }
 .main-body .result-area {
   text-align: center;
+  min-height: 400px;
 }
 .main-body .result-area .cover-img {
   display: block;
@@ -57,6 +58,35 @@ a {
   background-color: #eeccff;
 }
 .main-body .result-area .song-info #lv-name.R {
+  background-color: #e9e6ff;
+}
+.main-body .result-area .table-lv {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+.main-body .result-area .table-lv th,
+.main-body .result-area .table-lv td {
+  font-size: 16px;
+  text-align: center;
+  width: 20%;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.main-body .result-area .table-lv .table-lv-name.B {
+  background-color: #ccffcc;
+}
+.main-body .result-area .table-lv .table-lv-name.A {
+  background-color: #ffdd99;
+}
+.main-body .result-area .table-lv .table-lv-name.E {
+  background-color: #ffccf7;
+}
+.main-body .result-area .table-lv .table-lv-name.M {
+  background-color: #eeccff;
+}
+.main-body .result-area .table-lv .table-lv-name.R {
   background-color: #e9e6ff;
 }
 .main-body .setting-area {
@@ -166,5 +196,4 @@ a {
   border: 3px solid #259bc6;
   text-shadow: 0px 2px 2px #259bc6, 2px 0px 2px #259bc6, -2px 0px 2px #259bc6, 0px -2px 2px #259bc6;
 }
-
 /*# sourceMappingURL=style.css.map */
