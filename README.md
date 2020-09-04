@@ -6,7 +6,7 @@
 
 ## 安装环境与构建
 
-先安装 (node.js)[https://nodejs.org]，然后进入文件夹，输入命令：
+先安装 [node.js](https://nodejs.org)，然后进入文件夹，输入命令：
 
 ```bash
 npm i
