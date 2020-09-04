@@ -13,7 +13,7 @@ const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 
 function clean() {
-    return del(['static/css/*.css', 'static/css/*.map', 'static/scripts/*.js']);
+    return del(['static/css/*.css', 'static/css/*.css.map', 'static/scripts/*.js', 'static/scripts/*.js.map']);
 }
 
 function buildScss() {
