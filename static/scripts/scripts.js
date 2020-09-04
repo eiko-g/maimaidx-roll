@@ -88,7 +88,7 @@ docReady(() => {
         抽奖歌单 = [],
         歌单名 = {
             'maimaidxplus': 'maimaiDX+ 日版',
-            'maimaidxcn': 'maimaiDX 中国版'
+            'maimaidxCN': 'maimaiDX CN（新基准）'
         },
         分类名 = {
             'pops_anime': '动画 & 流行',
@@ -96,7 +96,8 @@ docReady(() => {
             'toho': '东方 Project',
             'variety': '游戏 & 联动',
             'maimai': 'maimai 原创',
-            'gekichu': '音击 & 中二'
+            'gekichu': '音击 & 中二',
+            'original': '原创曲目'
         },
         难度名 = {
             B: 'Basic',
@@ -130,6 +131,7 @@ docReady(() => {
             }
         });
     }
+    载入歌单('maimaidxCN', 1);
     载入歌单('maimaidxplus', 1);
     //#endregion
     let
