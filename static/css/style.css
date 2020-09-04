@@ -31,7 +31,7 @@ a {
 .main-body .result-area .cover-img {
   display: block;
   width: 200px;
-  height: auto;
+  height: 200px;
   margin: 10px auto;
 }
 .main-body .result-area .cover-tip {
