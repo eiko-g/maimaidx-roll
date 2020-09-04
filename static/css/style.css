@@ -175,6 +175,56 @@ a {
   line-height: 1.5;
   margin: 0.5em 0;
 }
+.option-main .option-body .option-block .option-block-rank {
+  display: flex;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label {
+  width: calc(1 / 6 * 100%);
+  text-align: center;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label input[type=radio] {
+  display: none;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label .inner {
+  display: block;
+  border: 3px solid #ccc;
+  padding: 5px;
+  margin: 5px;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.all input:checked ~ .inner {
+  border-color: #ccc;
+  background-color: #ccc;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.B .inner {
+  border-color: #ccffcc;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.B input:checked ~ .inner {
+  background-color: #ccffcc;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.A .inner {
+  border-color: #ffdd99;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.A input:checked ~ .inner {
+  background-color: #ffdd99;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.E .inner {
+  border-color: #ffccf7;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.E input:checked ~ .inner {
+  background-color: #ffccf7;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.M .inner {
+  border-color: #eeccff;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.M input:checked ~ .inner {
+  background-color: #eeccff;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.R .inner {
+  border-color: #e9e6ff;
+}
+.option-main .option-body .option-block .option-block-rank .rank-label.R input:checked ~ .inner {
+  background-color: #e9e6ff;
+}
 .option-main .option-body .option-block .option-block-lv {
   display: flex;
   margin: 1em auto;
@@ -186,6 +236,21 @@ a {
 }
 .option-main .option-body .option-block .option-block-lv input[type=number]:focus {
   border-color: #259bc6;
+}
+.option-main .option-body .option-block .option-block-songlist .songlist-item {
+  margin: 10px auto;
+}
+.option-main .option-body .option-block .option-block-songlist .songlist-item input[type=radio] {
+  display: none;
+}
+.option-main .option-body .option-block .option-block-songlist .songlist-item input[type=radio]:checked ~ .songlist-label {
+  border-color: #eeccff;
+  background-color: #eeccff;
+}
+.option-main .option-body .option-block .option-block-songlist .songlist-item .songlist-label {
+  display: block;
+  padding: 5px;
+  border: 3px solid #ccc;
 }
 .option-main .option-body .save-option {
   display: block;

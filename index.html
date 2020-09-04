@@ -7,8 +7,8 @@
     <title>买买 DX 曲目抽奖页面</title>
     <link rel="shortcut icon" href="./favicon.png" />
     <link rel="stylesheet" href="./static/css/normalize.css?ver=8.0.1" />
-    <link rel="stylesheet" href="./static/css/style.css?ver=2020090401" />
-    <script src="./static/scripts/scripts.js?ver=20220090502"></script>
+    <link rel="stylesheet" href="./static/css/style.css?ver=2020090503" />
+    <script src="./static/scripts/scripts.js?ver=20220090503"></script>
   </head>
 
   <body>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="footer">
-        <p>ver Test.20200905.02</p>
+        <p>ver Test.20200905.03</p>
         <p>
           <a
             href="https://github.com/eiko-g/maimaidx-roll"
@@ -96,7 +96,7 @@
           <div class="option-block lv">
             <h3 class="option-title">等级设置</h3>
             <div class="option-block-rank">
-              <label for="lv-rank-all">
+              <label class="rank-label all" for="lv-rank-all">
                 <input
                   type="radio"
                   name="难度"
@@ -104,27 +104,27 @@
                   value="all"
                   checked="checked"
                 />
-                All
+                <span class="inner">All</span>
               </label>
-              <label for="lv-rank-B">
+              <label class="rank-label B" for="lv-rank-B">
                 <input type="radio" name="难度" id="lv-rank-B" value="B" />
-                B
+                <span class="inner">B</span>
               </label>
-              <label for="lv-rank-A">
+              <label class="rank-label A" for="lv-rank-A">
                 <input type="radio" name="难度" id="lv-rank-A" value="A" />
-                A
+                <span class="inner">A</span>
               </label>
-              <label for="lv-rank-E">
+              <label class="rank-label E" for="lv-rank-E">
                 <input type="radio" name="难度" id="lv-rank-E" value="E" />
-                E
+                <span class="inner">E</span>
               </label>
-              <label for="lv-rank-M">
+              <label class="rank-label M" for="lv-rank-M">
                 <input type="radio" name="难度" id="lv-rank-M" value="M" />
-                M
+                <span class="inner">M</span>
               </label>
-              <label for="lv-rank-R">
+              <label class="rank-label R" for="lv-rank-R">
                 <input type="radio" name="难度" id="lv-rank-R" value="R" />
-                R
+                <span class="inner">R</span>
               </label>
             </div>
             <div class="option-block-lv">

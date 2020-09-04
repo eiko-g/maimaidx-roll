@@ -180,6 +180,70 @@ a {
         line-height: 1.5;
         margin: 0.5em 0;
       }
+
+      .option-block-rank {
+        display: flex;
+        .rank-label {
+          width: calc(1 / 6 * 100%);
+          text-align: center;
+          input[type="radio"] {
+            display: none;
+          }
+          .inner {
+            display: block;
+            border: 3px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+          }
+          &.all {
+            input:checked ~ .inner {
+              border-color: #ccc;
+              background-color: #ccc;
+            }
+          }
+          &.B {
+            .inner {
+              border-color: #ccffcc;
+            }
+            input:checked ~ .inner {
+              background-color: #ccffcc;
+            }
+          }
+          &.A {
+            .inner {
+              border-color: #ffdd99;
+            }
+            input:checked ~ .inner {
+              background-color: #ffdd99;
+            }
+          }
+          &.E {
+            .inner {
+              border-color: #ffccf7;
+            }
+            input:checked ~ .inner {
+              background-color: #ffccf7;
+            }
+          }
+          &.M {
+            .inner {
+              border-color: #eeccff;
+            }
+            input:checked ~ .inner {
+              background-color: #eeccff;
+            }
+          }
+          &.R {
+            .inner {
+              border-color: #e9e6ff;
+            }
+            input:checked ~ .inner {
+              background-color: #e9e6ff;
+            }
+          }
+        }
+      }
+
       .option-block-lv {
         display: flex;
         margin: 1em auto;
@@ -189,6 +253,24 @@ a {
           border: 3px solid #999;
           &:focus {
             border-color: #259bc6;
+          }
+        }
+      }
+
+      .option-block-songlist {
+        .songlist-item {
+          margin: 10px auto;
+          input[type="radio"] {
+            display: none;
+            &:checked ~ .songlist-label {
+              border-color: #eeccff;
+              background-color: #eeccff;
+            }
+          }
+          .songlist-label {
+            display: block;
+            padding: 5px;
+            border: 3px solid #ccc;
           }
         }
       }
