@@ -100,6 +100,7 @@ docReady(() => {
             'original': '原创曲目'
         },
         难度名 = {
+            All: '全难度',
             B: 'Basic',
             A: 'Advanced',
             E: 'Expert',
@@ -172,9 +173,9 @@ docReady(() => {
         console.log('设置：', 设置);
 
         if (设置.等级带加号) {
-            getEl('#setting-lv').textContent = 设置.等级 + '+';
+            getEl('#setting-lv').textContent = `[${难度名[设置.难度]}] ${设置.等级}+`;
         } else {
-            getEl('#setting-lv').textContent = 设置.等级;
+            getEl('#setting-lv').textContent = `[${难度名[设置.难度]}] ${设置.等级}`;
         }
         getEl('#setting-songlist').textContent = 歌单名[设置.歌单];
 
@@ -189,12 +190,18 @@ docReady(() => {
             if (设置.等级带加号) {
                 lv = lv + '+';
             }
-            tempLv.some((value) => {
-                if (value == lv) {
+            if (设置.难度 == 'all') {
+                tempLv.some((value) => {
+                    if (value == lv) {
+                        result = true;
+                    }
+                    // console.log('Result:', result);
+                });
+            } else {
+                if (歌曲.等级[设置.难度] == lv) {
                     result = true;
                 }
-                // console.log('Result:', result);
-            });
+            }
             return result;
         }
         抽奖歌单 = 抽奖歌单.filter(筛选歌单);

@@ -21,6 +21,7 @@
 
     <div class="main-body">
       <div class="result-area">
+        <p class="cover-tip">※ 封面切换时载入稍慢</p>
         <img
           src="./static/img/nocover.png"
           alt="Cover"
@@ -66,7 +67,7 @@
       <div class="setting-info">
         <p>
           难度：
-          <span id="setting-lv">未设置</span>
+          <span id="setting-lv">[难度] 未设置</span>
         </p>
         <p>
           歌单选择：
@@ -94,8 +95,40 @@
           <h2 class="option-main-title">抽奖设置</h2>
           <div class="option-block lv">
             <h3 class="option-title">等级设置</h3>
+            <div class="option-block-rank">
+              <label for="lv-rank-all">
+                <input
+                  type="radio"
+                  name="难度"
+                  id="lv-rank-all"
+                  value="all"
+                  checked="checked"
+                />
+                All
+              </label>
+              <label for="lv-rank-B">
+                <input type="radio" name="难度" id="lv-rank-B" value="B" />
+                B
+              </label>
+              <label for="lv-rank-A">
+                <input type="radio" name="难度" id="lv-rank-A" value="A" />
+                A
+              </label>
+              <label for="lv-rank-E">
+                <input type="radio" name="难度" id="lv-rank-E" value="E" />
+                E
+              </label>
+              <label for="lv-rank-M">
+                <input type="radio" name="难度" id="lv-rank-M" value="M" />
+                M
+              </label>
+              <label for="lv-rank-R">
+                <input type="radio" name="难度" id="lv-rank-R" value="R" />
+                R
+              </label>
+            </div>
             <div class="option-block-lv">
-              <label for="lv-min" class="option-label"> 等级： </label>
+              <label for="lv-min" class="option-label">等级：</label>
               <input
                 type="number"
                 class="option-input"

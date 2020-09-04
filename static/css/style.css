@@ -26,13 +26,20 @@ a {
 }
 .main-body .result-area {
   text-align: center;
-  min-height: 400px;
+  min-height: 450px;
 }
 .main-body .result-area .cover-img {
   display: block;
-  width: 150px;
-  height: 150px;
-  margin: auto;
+  width: 200px;
+  height: auto;
+  margin: 10px auto;
+}
+.main-body .result-area .cover-tip {
+  font-size: 12px;
+  color: #ccc;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
 }
 .main-body .result-area .song-title {
   color: #2e94f4;
