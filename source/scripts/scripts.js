@@ -100,7 +100,7 @@ docReady(() => {
             'original': '原创曲目'
         },
         难度名 = {
-            All: '全难度',
+            all: '全难度',
             B: 'Basic',
             A: 'Advanced',
             E: 'Expert',
