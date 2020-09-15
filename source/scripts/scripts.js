@@ -136,7 +136,8 @@ docReady(() => {
     载入歌单('maimaidxplus', 1);
     //#endregion
     let
-        Roll歌按钮 = getEl('#roll-button');
+        Roll歌按钮 = getEl('#roll-button'),
+        收歌按钮 = getEl('#random-roll');
     Roll歌按钮.setAttribute('disabled', 'disabled');
     //#region 设置
     let 设置按钮 = getEl('#setting-button');
@@ -231,12 +232,7 @@ docReady(() => {
         return Object.keys(object).find(key => object[key] === value);
     }
 
-    Roll歌按钮.addEventListener('click', () => {
-        console.log('Roll!');
-        let
-            随机数 = 抽取(0, 抽奖歌单.length - 1),
-            抽到的歌 = 抽奖歌单[随机数];
-        console.log(抽到的歌);
+    function 展示内容(抽到的歌) {
         getEl('#title').textContent = 抽到的歌.曲名;
         getEl('#category').textContent = 分类名[抽到的歌.分类];
         let temp = {};
@@ -245,11 +241,6 @@ docReady(() => {
         } else {
             temp.lv = 设置.等级;
         }
-        temp.lvName = getKeyByValue(抽到的歌.等级, temp.lv);
-        getEl('#lv-name').classList.remove('B', 'A', 'E', 'M', 'R');
-        getEl('#lv-name').classList.add(temp.lvName);
-        getEl('#lv-name').textContent = 难度名[temp.lvName];
-        getEl('#lv-num').textContent = temp.lv;
         getEl('#type').textContent = 抽到的歌.类型;
         if (抽到的歌.封面 != '') {
             getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
@@ -261,5 +252,32 @@ docReady(() => {
         getEl('#table-lv-num-E').textContent = 抽到的歌.等级.E;
         getEl('#table-lv-num-M').textContent = 抽到的歌.等级.M;
         getEl('#table-lv-num-R').textContent = 抽到的歌.等级.R;
+    }
+
+    Roll歌按钮.addEventListener('click', () => {
+        console.log('Roll!');
+        let
+            随机数 = 抽取(0, 抽奖歌单.length - 1),
+            抽到的歌 = 抽奖歌单[随机数];
+        console.log(抽到的歌);
+        展示内容(抽到的歌);
+        // 每次抽完都要打乱歌单
+        shuffleArray(抽奖歌单);
+        console.log('重新随机的歌单：', 抽奖歌单);
+    });
+
+    // 今天收什么呢？
+    let 收歌歌单CN = [];
+    收歌按钮.addEventListener('click', () => {
+        console.log('今天一定收！');
+        if (收歌歌单CN.length == 0) {
+            收歌歌单CN = 载入的JSON['maimaidxCN'].曲目列表;
+        }
+        shuffleArray(收歌歌单CN);
+        let
+            随机数 = 抽取(0, 收歌歌单CN.length - 1),
+            抽到的歌 = 收歌歌单CN[随机数];
+        console.log(抽到的歌);
+        展示内容(抽到的歌);
     });
 });
