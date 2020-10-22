@@ -28,6 +28,14 @@ gulp build
 
 ---
 
+## To do
+
+- [ ] 多选难度范围
+- [ ] 歌曲分类选择
+- [ ] 弄一份当前版本等级的数据，避免造成混乱
+
+---
+
 ## 资料来源
 
 - [maimai fc2 wiki](https://maimai.wiki.fc2.com/)

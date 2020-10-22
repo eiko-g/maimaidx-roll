@@ -88,7 +88,7 @@ docReady(() => {
         抽奖歌单 = [],
         歌单名 = {
             'maimaidxplus': 'maimaiDX+ 日版',
-            'maimaidxCN': 'maimaiDX CN（新基准）'
+            'maimaidxCN': 'maimaiDX CN（DX+基准）'
         },
         分类名 = {
             'pops_anime': '动画 & 流行',
@@ -148,21 +148,10 @@ docReady(() => {
     let 表单 = getEl('#option-form');
     表单.addEventListener('submit', function (event) {
         let
-            等级 = getEl('#lv').value,
-            等级带加号 = getEl('#lv-plus').checked,
+            最低等级 = getEl('#lv-min').value,
             表单数据 = new FormData(this);
         console.log('表单数据：', 表单数据);
 
-        if (!(Number(等级) > 0) || isNaN(Number(等级))) {
-            console.log('设置有误');
-            console.log('等级：', 等级);
-
-            console.log(Number(等级));
-            console.log(isNaN(Number(等级)));
-
-            // event.preventDefault();
-            return false;
-        }
         // 清空一下设置，不然会有残留
         设置 = {};
         for (let [key, value] of 表单数据.entries()) {
@@ -173,11 +162,23 @@ docReady(() => {
 
         console.log('设置：', 设置);
 
-        if (设置.等级带加号) {
-            getEl('#setting-lv').textContent = `[${难度名[设置.难度]}] ${设置.等级}+`;
+        let 等级文字 = {};
+        if (设置.最低等级带加号) {
+            等级文字.最低等级 = `${设置.最低等级}+`;
         } else {
-            getEl('#setting-lv').textContent = `[${难度名[设置.难度]}] ${设置.等级}`;
+            等级文字.最低等级 = `${设置.最低等级}`;
         }
+
+        if (设置.最高等级) {
+            if (设置.最高等级带加号) {
+                等级文字.最高等级 = ` ~ ${设置.最高等级}+`;
+            } else {
+                等级文字.最高等级 = ` ~ ${设置.最高等级}`;
+            }
+        } else {
+            等级文字.最高等级 = '';
+        }
+        getEl('#setting-lv').textContent = `[${难度名[设置.难度]}]` + 等级文字.最低等级 + 等级文字.最高等级;
         getEl('#setting-songlist').textContent = 歌单名[设置.歌单];
 
         // 筛选歌曲
@@ -186,23 +187,86 @@ docReady(() => {
         function 筛选歌单(歌曲) {
             let
                 result = false,
-                lv = 设置.等级;
-            let tempLv = Object.values(歌曲.等级);
-            if (设置.等级带加号) {
-                lv = lv + '+';
+                lv_min = 设置.最低等级,
+                lv_max = 设置.最高等级,
+                songLv = Object.values(歌曲.等级);
+            // console.log('歌曲：', 歌曲);
+            if (设置.最低等级带加号) {
+                lv_min = lv_min + '+';
             }
-            if (设置.难度 == 'all') {
-                tempLv.some((value) => {
-                    if (value == lv) {
+            if (设置.最高等级带加号) {
+                lv_max = lv_max + '+';
+            }
+            // 如果没写最高等级的话
+            if (!设置.最高等级) {
+                // 如果全难度的话
+                if (设置.难度 == 'all') {
+                    // 这首歌的某个难度等于设置的最低难度
+                    songLv.some((value) => {
+                        if (value == lv_min) {
+                            result = true;
+                        }
+                    });
+                } else {
+                    // 如果设置了难度就看那个难度就行了
+                    if (歌曲.等级[设置.难度] == lv_min) {
                         result = true;
                     }
-                    // console.log('Result:', result);
-                });
+                }
             } else {
-                if (歌曲.等级[设置.难度] == lv) {
-                    result = true;
+                // 如果写了最高难度的话
+                if (设置.难度 == 'all') {
+                    console.log('当前歌曲：', 歌曲);
+                    songLv.some((value) => {
+                        console.log('当前歌曲难度：', value);
+                        // 先判断整体范围
+                        if (
+                            (Number.parseInt(value) >= Number.parseInt(lv_min))
+                            && (Number.parseInt(value) <= Number.parseInt(lv_max))
+                        ) {
+                            result = true;
+                        }
+                        // 再判断边界
+                        // 我他妈就套娃
+                        // 判断最低等级边界
+                        if (Number.parseInt(value) == Number.parseInt(lv_min)) {
+                            if (value != lv_min) {
+                                result = false;
+                            }
+                        }
+
+                        // 判断最高等级边界
+                        if (Number.parseInt(value) == Number.parseInt(lv_max)) {
+                            if (value != lv_max) {
+                                result = false;
+                            }
+                        }
+                    });
+                } else {
+                    // 如果指定了某个难度的话
+                    if (
+                        (Number.parseInt(歌曲.等级[设置.难度]) >= Number.parseInt(lv_min))
+                        && (Number.parseInt(歌曲.等级[设置.难度]) <= Number.parseInt(lv_max))
+                    ) {
+                        result = true;
+                    }
+
+                    // 判断最低等级边界
+                    if (Number.parseInt(歌曲.等级[设置.难度]) == Number.parseInt(lv_min)) {
+                        if (歌曲.等级[设置.难度] != lv_min) {
+                            result = false;
+                        }
+                    }
+
+                    // 判断最高等级边界
+                    if (Number.parseInt(歌曲.等级[设置.难度]) == Number.parseInt(lv_max)) {
+                        if (歌曲.等级[设置.难度] != lv_max) {
+                            result = false;
+                        }
+                    }
                 }
             }
+
             return result;
         }
         抽奖歌单 = 抽奖歌单.filter(筛选歌单);
@@ -235,12 +299,6 @@ docReady(() => {
     function 展示内容(抽到的歌) {
         getEl('#title').textContent = 抽到的歌.曲名;
         getEl('#category').textContent = 分类名[抽到的歌.分类];
-        let temp = {};
-        if (设置.等级带加号) {
-            temp.lv = 设置.等级 + '+';
-        } else {
-            temp.lv = 设置.等级;
-        }
         getEl('#type').textContent = 抽到的歌.类型;
         if (抽到的歌.封面 != '') {
             getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
