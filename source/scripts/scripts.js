@@ -88,7 +88,7 @@ docReady(() => {
         抽奖歌单 = [],
         歌单名 = {
             'maimaidxplus': 'maimaiDX+ 日版',
-            'maimaidxCN': 'maimaiDX CN（DX+基准）'
+            'maimaidxCN': 'maimaiDX 国行'
         },
         分类名 = {
             'pops_anime': '动画 & 流行',
