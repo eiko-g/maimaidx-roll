@@ -94,7 +94,7 @@ docReady(() => {
             'pops_anime': '动画 & 流行',
             'niconico': 'nico & V家',
             'toho': '东方 Project',
-            'variety': '游戏 & 联动',
+            'variety': '综艺曲目',
             'maimai': 'maimai 原创',
             'gekichu': '音击 & 中二',
             'original': '原创曲目'
@@ -132,8 +132,8 @@ docReady(() => {
             }
         });
     }
-    载入歌单('maimaidxCN', 1);
-    载入歌单('maimaidxplus', 1);
+    载入歌单('maimaidxCN', 2020110301);
+    // 载入歌单('maimaidxplus', 1);
     //#endregion
     let
         Roll歌按钮 = getEl('#roll-button'),

@@ -30,9 +30,17 @@ gulp build
 
 ## To do
 
-- [ ] 多选难度范围
+- [x] 多选难度范围
 - [ ] 歌曲分类选择
-- [ ] 弄一份当前版本等级的数据，避免造成混乱
+- [x] 弄一份当前版本等级的数据，避免造成混乱
+
+---
+
+## 歌单数据 Excel
+
+maimaiDXCN：[OneDrive 链接](https://1drv.ms/x/s!ArePsgkuEqXhqmsyOsKcKNyAaVeV?e=SHz6gI)
+
+阔以的话帮我抓抓虫，谢谢大佬们。
 
 ---
 
