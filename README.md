@@ -30,8 +30,9 @@ gulp build
 
 ## To do
 
-- [x] 多选难度范围
+- [ ] 多选难度分类
 - [ ] 歌曲分类选择
+- [x] 多选等级范围
 - [x] 弄一份当前版本等级的数据，避免造成混乱
 
 ---
@@ -48,5 +49,5 @@ maimaiDXCN：[OneDrive 链接](https://1drv.ms/x/s!ArePsgkuEqXhqmsyOsKcKNyAaVeV?
 
 - [maimai fc2 wiki](https://maimai.wiki.fc2.com/)
 - [maimaiDX Offcial](https://maimai.sega.jp/song/)
+- [maimai 中文维基](https://maimai.fandom.com/zh/wiki/Maimai%E4%B8%AD%E6%96%87_%E7%BB%B4%E5%9F%BA)
 
- 

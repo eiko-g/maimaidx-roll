@@ -216,9 +216,9 @@ docReady(() => {
             } else {
                 // 如果写了最高难度的话
                 if (设置.难度 == 'all') {
-                    console.log('当前歌曲：', 歌曲);
+                    // console.log('当前歌曲：', 歌曲);
                     songLv.some((value) => {
-                        console.log('当前歌曲难度：', value);
+                        // console.log('当前歌曲难度：', value);
                         // 先判断整体范围
                         if (
                             (Number.parseInt(value) >= Number.parseInt(lv_min))
@@ -228,17 +228,23 @@ docReady(() => {
                         }
                         // 再判断边界
                         // 我他妈就套娃
-                        // 判断最低等级边界
-                        if (Number.parseInt(value) == Number.parseInt(lv_min)) {
-                            if (value != lv_min) {
-                                result = false;
+                        // 如果最高最低等级不相同
+                        if (Number.parseInt(lv_min) != Number.parseInt(lv_max)) {
+                            // 判断最低等级边界
+                            if (Number.parseInt(value) == Number.parseInt(lv_min)) {
+                                if (value != lv_min) {
+                                    result = false;
+                                }
                             }
-                        }
-
-                        // 判断最高等级边界
-                        if (Number.parseInt(value) == Number.parseInt(lv_max)) {
-                            if (value != lv_max) {
-                                result = false;
+                            // 判断最高等级边界
+                            if (Number.parseInt(value) == Number.parseInt(lv_max)) {
+                                if (value != lv_max) {
+                                    result = false;
+                                }
+                            }
+                        } else {
+                            if ((value == lv_min) || (value == lv_max)) {
+                                result = true;
                             }
                         }
                     });
