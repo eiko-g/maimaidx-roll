@@ -257,17 +257,24 @@ docReady(() => {
                         result = true;
                     }
 
-                    // 判断最低等级边界
-                    if (Number.parseInt(歌曲.等级[设置.难度]) == Number.parseInt(lv_min)) {
-                        if (歌曲.等级[设置.难度] != lv_min) {
-                            result = false;
+                    //又来套娃了
+                    if (Number.parseInt(lv_min) != Number.parseInt(lv_max)) {
+                        // 判断最低等级边界
+                        if (Number.parseInt(歌曲.等级[设置.难度]) == Number.parseInt(lv_min)) {
+                            if (歌曲.等级[设置.难度] != lv_min) {
+                                result = false;
+                            }
                         }
-                    }
 
-                    // 判断最高等级边界
-                    if (Number.parseInt(歌曲.等级[设置.难度]) == Number.parseInt(lv_max)) {
-                        if (歌曲.等级[设置.难度] != lv_max) {
-                            result = false;
+                        // 判断最高等级边界
+                        if (Number.parseInt(歌曲.等级[设置.难度]) == Number.parseInt(lv_max)) {
+                            if (歌曲.等级[设置.难度] != lv_max) {
+                                result = false;
+                            }
+                        }
+                    } else {
+                        if ((歌曲.等级[设置.难度] == lv_min) || (歌曲.等级[设置.难度] == lv_max)) {
+                            result = true;
                         }
                     }
                 }
@@ -279,6 +286,10 @@ docReady(() => {
         // 打乱一下歌单，避免浏览器的伪随机影响
         shuffleArray(抽奖歌单);
         console.log('筛选后的抽奖歌单：', 抽奖歌单);
+
+        if (抽奖歌单.length == 0) {
+            alert('抽选歌单为空，请检查筛选条件。');
+        }
 
         event.preventDefault();
         return false;
