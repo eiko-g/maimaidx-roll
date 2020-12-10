@@ -132,7 +132,7 @@ docReady(() => {
       }
     });
   }
-  载入歌单('maimaidxCN', 2020110301);
+  载入歌单('maimaidxCN', 2020121001);
   // 载入歌单('maimaidxplus', 1);
   //#endregion
   let
