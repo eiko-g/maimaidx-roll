@@ -88,7 +88,7 @@ docReady(() => {
     抽奖歌单 = [],
     歌单名 = {
       'maimaidxplus': 'maimaiDX+ 日版',
-      'maimaidxCN': 'maimaiDX 国行'
+      'maimaidxCN': '舞萌DX ver.CH-1.01D'
     },
     分类名 = {
       'pops_anime': '动画 & 流行',
@@ -132,7 +132,7 @@ docReady(() => {
       }
     });
   }
-  载入歌单('maimaidxCN', 2020121001);
+  载入歌单('maimaidxCN', 2021011101);
   // 载入歌单('maimaidxplus', 1);
   //#endregion
   let
