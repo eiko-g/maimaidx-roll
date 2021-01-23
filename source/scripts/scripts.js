@@ -88,7 +88,8 @@ docReady(() => {
     抽奖歌单 = [],
     歌单名 = {
       'maimaidxplus': 'maimaiDX+ 日版',
-      'maimaidxCN': '舞萌DX ver.CH-1.01D'
+      'maimaidxCN': '舞萌DX ver.CH-1.01D',
+      'test': '测试用'
     },
     分类名 = {
       'pops_anime': '动画 & 流行',
@@ -112,7 +113,7 @@ docReady(() => {
     let 载入次数;
     myAjax({
       type: 'GET',
-      url: './data/' + 文件名 + '.json?ver=' + 版本,
+      url: `./data/${文件名}.json?ver=${版本}`,
       timeout: 10000,
       type: 'json',
       done: (data) => {
@@ -124,15 +125,16 @@ docReady(() => {
         if (载入次数 < 10) {
           载入次数++;
           载入歌单(文件名, 版本);
-          console.log('载入文件失败：' + 文件名 + '（' + 版本 + '），失败次数：' + 载入次数);
+          console.log(`载入文件失败：${文件名}（${版本}），失败次数：${载入次数}`);
         } else {
-          alert(文件名 + '.json' + '（' + 版本 + '）' + '载入失败次数过多，请刷新页面重试');
+          alert(`${文件名}.json（${版本}）载入失败次数过多，请刷新页面重试`);
           载入次数 = 0;
         }
       }
     });
   }
   载入歌单('maimaidxCN', 2021011501);
+  // 载入歌单('test', 1111);
   // 载入歌单('maimaidxplus', 1);
   //#endregion
   let
@@ -334,15 +336,15 @@ docReady(() => {
     return Math.floor(Math.random() * 抽取数 + 最小值);
   }
   // 来自：https://stackoverflow.com/questions/9907419/how-to-get-a-key-in-a-javascript-object-by-its-value
-  function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
+  function getKeysByValue(object, value) {
+    return Object.keys(object).filter(key => object[key] === value);
   }
 
   function 展示内容(抽到的歌) {
     getEl('#title').textContent = 抽到的歌.曲名;
     getEl('#category').textContent = 分类名[抽到的歌.分类];
     getEl('#type').textContent = 抽到的歌.类型;
-    if (抽到的歌.封面 != '') {
+    if (抽到的歌.封面 && (抽到的歌.封面 != '')) {
       getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
     } else {
       getEl('#cover').setAttribute('src', './static/img/nocover.png');
@@ -358,9 +360,96 @@ docReady(() => {
     console.log('Roll!');
     let
       随机数 = 抽取(0, 抽奖歌单.length - 1),
-      抽到的歌 = 抽奖歌单[随机数];
+      抽到的歌 = 抽奖歌单[随机数],
+      要展示的难度;
     console.log(抽到的歌);
     展示内容(抽到的歌);
+
+    // 想办法弄出抽的是哪个难度
+    if (设置.难度 == 'all') {
+      // 全难度的情况下
+      // 开始堆屎了
+      //#region 另一个思路的筛选
+      function 筛选等级(等级) {
+        // 又开始了.jpg
+        let
+          结果 = false,
+          实际最低等级 = 设置.最低等级,
+          实际最高等级 = 设置.最高等级;
+        if (设置.最低等级带加号) {
+          实际最低等级 = 设置.最低等级 + '+';
+        }
+        if (设置.最高等级带加号) {
+          实际最高等级 = 设置.最高等级 + '+';
+        }
+        if (!设置.最高等级 || 设置.最高等级 == '') {
+          实际最高等级 = 实际最低等级;
+        }
+        // 先判断在不在等级（不含加号的）范围内
+        if (
+          (Number.parseInt(等级) >= Number.parseInt(实际最低等级))
+          && (Number.parseInt(等级) <= Number.parseInt(实际最高等级))
+        ) {
+          // 在就 true
+          结果 = true;
+        }
+
+        // 再检查下边界
+        // 如果等于最低等级，就检查下要不要加号
+        if (Number.parseInt(等级) == Number.parseInt(实际最低等级)) {
+          if (设置.最低等级带加号) {
+            if (等级 == 实际最低等级) {
+              结果 = true;
+            } else {
+              结果 = false;
+            }
+          }
+        }
+        // 最高等级就另一种判定
+        if (Number.parseInt(等级) == Number.parseInt(实际最高等级)) {
+          if (!设置.最高等级带加号) {
+            if (等级 == 实际最高等级) {
+              结果 = true;
+            } else {
+              结果 = false;
+            }
+          }
+        }
+        // 最后返回结果
+        return 结果;
+      }
+
+      let 重复等级的难度 = [];
+
+      // 判断这首歌的每个难度对应的等级在不在范围内
+      for (const [难度, 等级] of Object.entries(抽到的歌.等级)) {
+        //console.log('aaa', 难度, 等级)
+        if (筛选等级(等级)) {
+          重复等级的难度.push(难度);
+        }
+      }
+      //console.log('重复等级的难度', 重复等级的难度)
+      // 随机 Roll 个难度
+      shuffleArray(重复等级的难度);
+      要展示的难度 = 重复等级的难度[0];
+      //#endregion
+      // 堆完屎了
+    } else {
+      // 指定难度了不就直接展示了
+      要展示的难度 = 设置.难度;
+    }
+
+
+    getEl('#table-lv-num-B').classList.remove('current');
+    getEl('#table-lv-num-A').classList.remove('current');
+    getEl('#table-lv-num-E').classList.remove('current');
+    getEl('#table-lv-num-M').classList.remove('current');
+    getEl('#table-lv-num-R').classList.remove('current');
+    if ((要展示的难度) && (要展示的难度.length != 0)) {
+      console.log('最终展示的难度：', 要展示的难度);
+      getEl(`#table-lv-num-${要展示的难度}`).classList.add('current');
+    }
+
     // 每次抽完都要打乱歌单
     shuffleArray(抽奖歌单);
     console.log('重新随机的歌单：', 抽奖歌单);
@@ -381,5 +470,11 @@ docReady(() => {
       抽到的歌 = 收歌歌单CN[随机数];
     console.log(抽到的歌);
     展示内容(抽到的歌);
+
+    getEl('#table-lv-num-B').classList.remove('current');
+    getEl('#table-lv-num-A').classList.remove('current');
+    getEl('#table-lv-num-E').classList.remove('current');
+    getEl('#table-lv-num-M').classList.remove('current');
+    getEl('#table-lv-num-R').classList.remove('current');
   });
 });

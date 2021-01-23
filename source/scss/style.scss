@@ -98,6 +98,23 @@ a {
           background-color: #e9e6ff;
         }
       }
+      #table-lv-num {
+        &-B.current {
+          background-color: #ccffcc;
+        }
+        &-A.current {
+          background-color: #ffdd99;
+        }
+        &-E.current {
+          background-color: #ffccf7;
+        }
+        &-M.current {
+          background-color: #eeccff;
+        }
+        &-R.current {
+          background-color: #e9e6ff;
+        }
+      }
     }
   }
   .setting-area {
