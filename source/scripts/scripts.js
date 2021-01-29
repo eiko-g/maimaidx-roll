@@ -133,7 +133,7 @@ docReady(() => {
       }
     });
   }
-  载入歌单('maimaidxCN', 2021011501);
+  载入歌单('maimaidxCN', 2021012901);
   // 载入歌单('test', 1111);
   // 载入歌单('maimaidxplus', 1);
   //#endregion
