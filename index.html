@@ -44,11 +44,11 @@
             <th class="table-lv-name R">R</th>
           </thead>
           <tbody>
-            <td id="table-lv-num-B">m</td>
-            <td id="table-lv-num-A">a</td>
-            <td id="table-lv-num-E">i</td>
-            <td id="table-lv-num-M">D</td>
-            <td id="table-lv-num-R">X</td>
+            <td id="table-lv-num-B" class="table-lv-num">m</td>
+            <td id="table-lv-num-A" class="table-lv-num">a</td>
+            <td id="table-lv-num-E" class="table-lv-num">i</td>
+            <td id="table-lv-num-M" class="table-lv-num">D</td>
+            <td id="table-lv-num-R" class="table-lv-num">X</td>
           </tbody>
         </table>
       </div>
@@ -125,6 +125,20 @@
               </label>
             </div>
 
+            <div class="option-block-range">
+              <h3 class="option-title">范围设置</h3>
+              <div class="option-block-range-inner">
+                <label for="lv-range-s" class="option-range">
+                  <input type="radio" name="范围" id="lv-range-s" value="单" checked>
+                  <span class="inner">单难度</span>
+                </label>
+                <label for="lv-range-m" class="option-range m">
+                  <input type="radio" name="范围" id="lv-range-m" value="多">
+                  <span class="inner">范围难度</span>
+                </label>
+              </div>
+            </div>
+
             <div class="option-block-lv">
               <label for="lv-min" class="option-label">最低抽取等级：</label>
               <input
@@ -150,7 +164,7 @@
               </label>
             </div>
 
-            <div class="option-block-lv">
+            <div id="option-lv-max" class="option-block-lv">
               <label for="lv-max" class="option-label">最高抽取等级：</label>
               <input
                 type="number"
@@ -162,7 +176,7 @@
                 max="15"
               />
             </div>
-            <div class="option-block-lv">
+            <div id="option-lv-max-plus" class="option-block-lv">
               <label for="lv-max-plus" class="option-label">
                 <input
                   type="checkbox"

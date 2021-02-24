@@ -193,6 +193,12 @@ a {
     border-radius: 10px;
     padding: 20px;
     overflow-y: scroll;
+
+    .tips {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.2;
+    }
     .option-main-title {
       color: #ff7112;
       font-size: 24px;
@@ -281,6 +287,14 @@ a {
           &:focus {
             border-color: #259bc6;
           }
+        }
+      }
+
+      #option-lv-max,
+      #option-lv-max-plus {
+        display: none;
+        &.show {
+          display: block;
         }
       }
 
