@@ -56,7 +56,7 @@ maimaiDXCN：[OneDrive 链接](https://1drv.ms/x/s!ArePsgkuEqXhqmsyOsKcKNyAaVeV?
 ## 使用场景
 ~~其实是阴间歌比赛现场~~
 - [舞萌DX周年百店推广赛 女子组（东莞长安万科城市英雄店）](https://www.bilibili.com/video/BV1DV411t7zi)
-- [舞萌DX周年百店推广赛 男子组（东莞国贸环游嘉年华](https://www.bilibili.com/video/BV17y4y1n7Vs)
+- [舞萌DX周年百店推广赛 男子组（东莞国贸环游嘉年华）](https://www.bilibili.com/video/BV17y4y1n7Vs)
 
 ---
 
