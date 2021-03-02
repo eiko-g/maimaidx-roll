@@ -181,6 +181,8 @@ docReady(() => {
   // 表单保存的动作
   let 表单 = getEl('#option-form');
   表单.addEventListener('submit', function (event) {
+    // 开始计时
+    console.time('筛歌');
     let 表单数据 = new FormData(this);
     console.log('表单数据：', 表单数据);
 
@@ -254,7 +256,7 @@ docReady(() => {
             return result;
           });
         } else {
-          //#region 多难度大范围抽歌
+          //#region 多难度范围抽歌
           // 如果范围更大的话
           // what if 11+ ~ 13
           抽奖歌单 = 抽奖歌单.filter(被选中的歌 => {
@@ -309,10 +311,37 @@ docReady(() => {
             // 返回结果
             return result;
           });
-          //#endregion 多难度大范围抽歌
+          //#endregion 多难度范围抽歌
         }
       } else {
         // 如果指定了难度的话
+        抽奖歌单 = 抽奖歌单.filter(被选中的歌 => {
+          // 结果标记
+          let result = false;
+          //console.log('被选中的歌', 被选中的歌);
+          // 把等级取出来
+          let 单个等级 = 被选中的歌.等级[设置.难度];
+          // 然后复制粘贴上面的
+          // 是的，“代码复用”
+          if (取整(单个等级) >= 设置.最低等级 && 取整(单个等级) <= 设置.最高等级) {
+            result = true;
+          }
+          if (
+            (取整(单个等级) == 设置.最低等级) &&
+            (设置.最低等级带加号 == 'on') &&
+            (单个等级[单个等级.length - 1] != '+')
+          ) {
+            result = false;
+          }
+          if (
+            (取整(单个等级) == 设置.最高等级) &&
+            (设置.最高等级带加号 != 'on') &&
+            (单个等级[单个等级.length - 1] == '+')
+          ) {
+            result = false;
+          }
+          return result;
+        });
       }
     } else {
       alert('设置有问题，需要检查');
@@ -351,6 +380,8 @@ docReady(() => {
     getEl('.option-main')[0].classList.remove('show');
     // 使抽歌按钮可用
     Roll歌按钮.removeAttribute('disabled');
+    // 计时结束
+    console.timeEnd('筛歌');
     // 禁掉默认的提交动作
     event.preventDefault();
     return false;
