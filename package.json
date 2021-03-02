@@ -1,11 +1,12 @@
 {
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
     "delete": "^1.1.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-babel": "^8.0.0",
     "gulp-dart-sass": "^1.0.2",
+    "gulp-html-replace": "^1.6.2",
     "gulp-minify": "^3.1.0",
     "gulp-sourcemaps": "^2.6.5"
   }

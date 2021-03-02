@@ -11,9 +11,12 @@ const del = require('delete');
 const sass = require('gulp-dart-sass');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
+const htmlreplace = require('gulp-html-replace');
+
+const ver = new Date().getTime();
 
 function clean() {
-    return del(['static/css/*.css', 'static/css/*.css.map', 'static/scripts/*.js', 'static/scripts/*.js.map']);
+    return del(['build', 'static/css/*.css', 'static/css/*.css.map', 'static/scripts/*.js', 'static/scripts/*.js.map']);
 }
 
 function buildScss() {
@@ -26,7 +29,7 @@ function buildScss() {
         // .pipe(rename({
         //     extname: '.min.css'
         // }))
-        .pipe(dest('static/css/'))
+        .pipe(dest('build/static/css/'))
 }
 
 function buildJs() {
@@ -42,7 +45,27 @@ function buildJs() {
             },
         }))
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('static/scripts/'))
+        .pipe(dest('build/static/scripts/'))
+}
+
+function changeVer() {
+    return src('./index.html')
+        .pipe(htmlreplace({
+            'css': {
+                src: './static/css',
+                tpl: `<link rel="stylesheet" href="%s/style.css?ver=${ver}" />`
+            },
+            'js': {
+                src: './static/scripts',
+                tpl: `<script src="%s/scripts.js?ver=${ver}"></script>`
+            }
+        }))
+        .pipe(dest('build'));
+}
+
+function moveData() {
+    return src('data/*.json')
+        .pipe(dest('build/data'));
 }
 
 function watchScss() {
@@ -63,7 +86,7 @@ function watchJs() {
 exports.clean = clean;
 exports.buildScss = buildScss;
 exports.buildJs = buildJs;
-exports.build = series(clean, parallel(buildScss, buildJs));
+exports.build = series(clean, parallel(buildScss, buildJs, changeVer, moveData));
 exports.default = function () {
     watch('source/scss/*.scss', watchScss);
     watch('source/scripts/*.js', watchJs);

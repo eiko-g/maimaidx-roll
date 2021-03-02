@@ -126,3 +126,5 @@ static/css/*.css
 static/css/*.css.map
 static/scripts/*.js
 static/scripts/*.js.map
+
+build
