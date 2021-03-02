@@ -51,3 +51,15 @@ maimaiDXCN：[OneDrive 链接](https://1drv.ms/x/s!ArePsgkuEqXhqmsyOsKcKNyAaVeV?
 - [maimaiDX Offcial](https://maimai.sega.jp/song/)
 - [maimai 中文维基](https://maimai.fandom.com/zh/wiki/Maimai%E4%B8%AD%E6%96%87_%E7%BB%B4%E5%9F%BA)
 
+---
+
+## 使用场景
+~~其实是阴间歌比赛现场~~
+- [舞萌DX周年百店推广赛 女子组（东莞长安万科城市英雄店）](https://www.bilibili.com/video/BV1DV411t7zi)
+- [舞萌DX周年百店推广赛 男子组（东莞国贸环游嘉年华](https://www.bilibili.com/video/BV17y4y1n7Vs)
+
+---
+
+## License
+- 封面及部分素材归 &copy;SEGA 及原作者所有
+- 我写的代码部分为 WTFPL

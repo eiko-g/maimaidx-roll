@@ -153,7 +153,7 @@ docReady(() => {
     });
   }
   载入歌单('maimaidxCN', 2021030101);
-  载入歌单('test', 1111);
+  // 载入歌单('test', 1111);
   //#endregion
 
   let
@@ -352,8 +352,13 @@ docReady(() => {
     console.log('筛选后歌单：', 抽奖歌单);
 
     if (抽奖歌单.length == 0) {
-      // alert('抽选歌单为空，请检查筛选条件。');
-      console.warn('抽选歌单为空，请检查筛选条件。');
+      alert('抽选歌单为空，请检查筛选条件。');
+      // console.warn('抽选歌单为空，请检查筛选条件。');
+      // 禁抽歌
+      Roll歌按钮.setAttribute('disabled', 'disabled');
+    } else {
+      // 可抽歌
+      Roll歌按钮.removeAttribute('disabled');
     }
 
     // 显示设置
@@ -378,8 +383,6 @@ docReady(() => {
 
     // 隐藏设置框
     getEl('.option-main')[0].classList.remove('show');
-    // 使抽歌按钮可用
-    Roll歌按钮.removeAttribute('disabled');
     // 计时结束
     console.timeEnd('筛歌');
     // 禁掉默认的提交动作
@@ -387,6 +390,137 @@ docReady(() => {
     return false;
   });
   //#endregion
+
+  function 展示内容(抽到的歌) {
+    getEl('#title').textContent = 抽到的歌.曲名;
+    getEl('#category').textContent = 分类名[抽到的歌.分类];
+    getEl('#type').textContent = 抽到的歌.类型;
+    if (抽到的歌.封面 && (抽到的歌.封面 != '')) {
+      getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
+    } else {
+      getEl('#cover').setAttribute('src', './static/img/nocover.png');
+    }
+
+    for (const [难度] of Object.entries(抽到的歌.等级)) {
+      getEl(`#table-lv-num-${难度}`).textContent = 抽到的歌.等级[难度];
+    }
+  }
+
+  // 开始 Roll 歌
+  Roll歌按钮.addEventListener('click', () => {
+    console.log('Roll!');
+    // 打乱歌单
+    shuffleArray(抽奖歌单);
+    console.log(抽奖歌单);
+    // 算法足够随机的情况下取第一首即可
+    let 抽到的歌 = 抽奖歌单[0];
+    console.log(抽到的歌);
+    展示内容(抽到的歌);
+
+    let 要展示的难度;
+
+    // 想办法弄出抽的是哪个难度
+    // 先复制粘贴旧的了，反正可以用
+    if (设置.难度 == 'all') {
+      // 全难度的情况下
+      // 开始堆屎了
+      //#region 另一个思路的筛选
+      function 筛选等级(等级) {
+        // 又开始了.jpg
+        let
+          结果 = false,
+          实际最低等级 = 设置.最低等级,
+          实际最高等级 = 设置.最高等级;
+        if (设置.最低等级带加号) {
+          实际最低等级 = 设置.最低等级 + '+';
+        }
+        if (设置.最高等级带加号) {
+          实际最高等级 = 设置.最高等级 + '+';
+        }
+        if (!设置.最高等级 || 设置.最高等级 == '') {
+          实际最高等级 = 实际最低等级;
+        }
+        // 先判断在不在等级（不含加号的）范围内
+        if (
+          (Number.parseInt(等级) >= Number.parseInt(实际最低等级))
+          && (Number.parseInt(等级) <= Number.parseInt(实际最高等级))
+        ) {
+          // 在就 true
+          结果 = true;
+        }
+
+        // 再检查下边界
+        // 如果等于最低等级，就检查下要不要加号
+        if (Number.parseInt(等级) == Number.parseInt(实际最低等级)) {
+          if (设置.最低等级带加号) {
+            if (等级 == 实际最低等级) {
+              结果 = true;
+            } else {
+              结果 = false;
+            }
+          }
+        }
+        // 最高等级就另一种判定
+        if (Number.parseInt(等级) == Number.parseInt(实际最高等级)) {
+          if (!设置.最高等级带加号) {
+            if (等级 == 实际最高等级) {
+              结果 = true;
+            } else {
+              结果 = false;
+            }
+          }
+        }
+        // 最后返回结果
+        return 结果;
+      }
+
+      let 符合条件的难度 = [];
+
+      // 判断这首歌的每个难度对应的等级在不在范围内
+      for (const [难度, 等级] of Object.entries(抽到的歌.等级)) {
+        //console.log('aaa', 难度, 等级)
+        if (筛选等级(等级)) {
+          符合条件的难度.push(难度);
+        }
+      }
+      console.log('符合条件的难度', 符合条件的难度)
+      // 随机 Roll 个难度
+      shuffleArray(符合条件的难度);
+      要展示的难度 = 符合条件的难度[0];
+      //#endregion
+      // 堆完屎了
+    } else {
+      // 指定难度了不就直接展示了
+      要展示的难度 = 设置.难度;
+    }
+
+    // 先清掉显示中的样式
+    getEl('.table-lv-num').forEach(el => {
+      el.classList.remove('current');
+    });
+    if ((要展示的难度) && (要展示的难度.length != 0)) {
+      console.log('最终展示的难度：', 要展示的难度);
+      getEl(`#table-lv-num-${要展示的难度}`).classList.add('current');
+    }
+  });
+
+  // 随便整一首
+  收歌按钮.addEventListener('click', () => {
+    if (!载入的JSON['maimaidxCN']) {
+      alert('歌单还没载入好，稍等一哈');
+    } else {
+      console.log('随便 Roll 一首');
+      let 收歌歌单CN = 载入的JSON['maimaidxCN'].曲目列表;
+      shuffleArray(收歌歌单CN);
+      let 抽到的歌 = 收歌歌单CN[0];
+      console.log(抽到的歌);
+      展示内容(抽到的歌);
+
+      getEl('.table-lv-num').forEach(el => {
+        el.classList.remove('current');
+      });
+    }
+  });
 });
 // 载入完力
 console.log('script.js 已载入');
