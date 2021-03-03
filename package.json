@@ -8,6 +8,7 @@
     "gulp-dart-sass": "^1.0.2",
     "gulp-html-replace": "^1.6.2",
     "gulp-minify": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^3.0.0",
+    "vinyl-ftp": "^0.6.1"
   }
 }

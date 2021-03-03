@@ -128,3 +128,5 @@ static/scripts/*.js
 static/scripts/*.js.map
 
 build
+
+ftp.config.js

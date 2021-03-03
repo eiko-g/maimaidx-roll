@@ -12,11 +12,13 @@ const sass = require('gulp-dart-sass');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 const htmlreplace = require('gulp-html-replace');
+const ftp = require('vinyl-ftp');
 
 const ver = new Date().getTime();
+const ftpConfig = require('./ftp.config.js');
 
 function clean() {
-    return del(['build', 'static/css/*.css', 'static/css/*.css.map', 'static/scripts/*.js', 'static/scripts/*.js.map']);
+    return del(['build/**', 'static/css/*.css', 'static/css/*.css.map', 'static/scripts/*.js', 'static/scripts/*.js.map']);
 }
 
 function buildScss() {
@@ -83,10 +85,24 @@ function watchJs() {
         .pipe(dest('static/scripts/'))
 }
 
+const conn = ftp.create(ftpConfig());
+function upload() {
+    // console.log(ftpConfig())
+    return src([
+        './build/**'
+    ], {
+        base: './build',
+        buffer: false
+    })
+        .pipe(conn.newer('/maimai'))
+        .pipe(conn.dest('/maimai'))
+}
+
 exports.clean = clean;
 exports.buildScss = buildScss;
 exports.buildJs = buildJs;
 exports.build = series(clean, parallel(buildScss, buildJs, changeVer, moveData));
+exports.upload = upload;
 exports.default = function () {
     watch('source/scss/*.scss', watchScss);
     watch('source/scripts/*.js', watchJs);
