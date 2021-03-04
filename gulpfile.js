@@ -18,7 +18,17 @@ const ver = new Date().getTime();
 const ftpConfig = require('./ftp.config.js');
 
 function clean() {
-    return del(['build/**', 'static/css/*.css', 'static/css/*.css.map', 'static/scripts/*.js', 'static/scripts/*.js.map']);
+    return del([
+        'build/**'
+    ]);
+}
+function cleanDev() {
+    return del([
+        'static/css/*.css',
+        'static/css/*.css.map',
+        'static/scripts/*.js',
+        'static/scripts/*.js.map'
+    ]);
 }
 
 function buildScss() {
@@ -99,6 +109,7 @@ function upload() {
 }
 
 exports.clean = clean;
+exports.cleanDev = cleanDev;
 exports.buildScss = buildScss;
 exports.buildJs = buildJs;
 exports.build = series(clean, parallel(buildScss, buildJs, changeVer, moveData));
