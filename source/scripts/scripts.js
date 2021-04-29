@@ -396,7 +396,7 @@ docReady(() => {
     getEl('#category').textContent = 分类名[抽到的歌.分类];
     getEl('#type').textContent = 抽到的歌.类型;
     if (抽到的歌.封面 && (抽到的歌.封面 != '')) {
-      getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.分类}/${抽到的歌.封面}.jpg`);
+      getEl('#cover').setAttribute('src', `./static/img/cover/${抽到的歌.封面}.jpg`);
     } else {
       getEl('#cover').setAttribute('src', './static/img/nocover.png');
     }
