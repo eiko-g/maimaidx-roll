@@ -127,6 +127,8 @@ static/css/*.css.map
 static/scripts/*.js
 static/scripts/*.js.map
 
-build
+build/
 
 ftp.config.js
+
+aaa/

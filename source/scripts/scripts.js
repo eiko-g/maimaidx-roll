@@ -106,18 +106,18 @@ docReady(() => {
     载入的JSON = [],
     抽奖歌单 = [],
     歌单名 = {
-      'maimaidxplus': 'maimaiDX+ 日版',
-      'maimaidxCN': '舞萌DX ver.CH-1.01E',
+      // 'maimaidxplus': 'maimaiDX+ 日版',
+      'maimaidxCN': '舞萌DX ver.CH-1.11',
       'test': '测试用'
     },
     分类名 = {
       'pops_anime': '动画 & 流行',
       'niconico': 'nico & V家',
       'toho': '东方 Project',
-      'variety': '综艺曲目', // 还是想翻译成 游戏 & 联动 来着
-      'maimai': 'maimai 原创',
-      'gekichu': '音击 & 中二',
-      'original': '原创曲目'
+      'variety': '其他游戏', // 虽然不太对但是也算那个意思了
+      'maimai': 'maimai',
+      'gekichu': '音击 & 中二'
+      // 'original': '原创曲目'
     },
     难度名 = {
       all: '全难度',
@@ -152,7 +152,7 @@ docReady(() => {
       }
     });
   }
-  载入歌单('maimaidxCN', 2021030101);
+  载入歌单('maimaidxCN', 2021043001);
   // 载入歌单('test', 1111);
   //#endregion
 
