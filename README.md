@@ -44,9 +44,11 @@ gulp upload
 
 ## To do
 
-- [ ] 歌曲分类选择
+- [x] 歌曲分类选择
 - [x] 多选等级范围
 - [x] 弄一份当前版本等级的数据，避免造成混乱
+- [ ] 可选标准谱和 DX 谱
+- [ ] 改改样式
 - [ ] ~~多选难度分类~~
 
 难度多选好像没啥必要，比如比赛时抽歌需要紫谱白谱，选个 All 就够了吧，Roll 到红谱就重抽。~~懒逼发言~~
@@ -55,7 +57,7 @@ gulp upload
 
 ## 歌单数据 Excel
 
-maimaiDXCN：[OneDrive 链接](https://1drv.ms/x/s!ArePsgkuEqXhqmsyOsKcKNyAaVeV?e=SHz6gI)
+舞萌DX 2021：[OneDrive 链接](https://1drv.ms/x/s!ArePsgkuEqXhqmnLl0QyCovF9Sq1?e=amxLw2)
 
 阔以的话帮我抓抓虫，谢谢大佬们。
 
