@@ -113,7 +113,7 @@ exports.cleanDev = cleanDev;
 exports.buildScss = buildScss;
 exports.buildJs = buildJs;
 exports.build = series(clean, parallel(buildScss, buildJs, changeVer, moveData));
-exports.upload = upload;
+exports.upload = series(clean, parallel(buildScss, buildJs, changeVer, moveData), upload);
 exports.default = function () {
     watch('source/scss/*.scss', watchScss);
     watch('source/scripts/*.js', watchJs);
