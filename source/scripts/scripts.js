@@ -178,6 +178,31 @@ docReady(() => {
     getEl('#option-lv-max-plus').classList.add('show');
   });
 
+  //#region 分类选择
+  // 点了全部分类就把别的分类取消掉
+  getEl('.cat-label.all input')[0].addEventListener('click', function () {
+    getEl('.cat-label:not(.all) input').forEach(item => {
+      item.checked = false;
+    });
+    // 不给点掉全部分类
+    if (this.checked == false) {
+      this.checked = true;
+    }
+  });
+
+  // 点了其他分类就把全部分类取消掉
+  getEl('.cat-label:not(.all) input').forEach(item => {
+    item.addEventListener('click', () => {
+      if (getEl('.cat-label:not(.all) input:checked').length != 0) {
+        getEl('.cat-label.all input')[0].checked = false;
+      } else {
+        // 如果分类被全部取消的话就勾上全选
+        getEl('.cat-label.all input')[0].checked = true;
+      }
+    });
+  });
+  //#endregion
+
   // 表单保存的动作
   let 表单 = getEl('#option-form');
   表单.addEventListener('submit', function (event) {
@@ -190,6 +215,14 @@ docReady(() => {
     设置 = {};
     for (let [key, value] of 表单数据.entries()) {
       设置[key] = value;
+    }
+    // 单独处理一下分类
+    设置.分类 = [];
+    getEl('.cat-label input:checked').forEach(item => {
+      设置.分类.push(item.value);
+    });
+    if (设置.分类.length == 0) {
+      设置.分类[0] = 'all';
     }
     console.log('设置：', 设置);
 
@@ -346,6 +379,12 @@ docReady(() => {
     } else {
       alert('设置有问题，需要检查');
     }
+    // 最后筛一遍分类
+    if (设置.分类 && 设置.分类 != 'All') {
+      抽奖歌单 = 抽奖歌单.filter(被选中的歌 => {
+        return 设置.分类.includes(被选中的歌.分类);
+      });
+    }
     //#endregion
 
     // 预览歌单
@@ -378,8 +417,23 @@ docReady(() => {
     } else {
       等级文字.最高等级 = '';
     }
-    getEl('#setting-lv').textContent = `[${难度名[设置.难度]}]` + 等级文字.最低等级 + 等级文字.最高等级;
+
+    let tempArr = [];
+    if (设置.分类[0] != 'all') {
+      设置.分类.forEach(item => {
+        tempArr.push(分类名[item]);
+      });
+      console.log(tempArr);
+    } else {
+      tempArr[0] = '全分类';
+    }
+
+    getEl('#setting-rank').textContent = 难度名[设置.难度];
+    getEl('#setting-rank').classList.remove('B', 'A', 'E', 'M', 'R');
+    getEl('#setting-rank').classList.add(设置.难度);
+    getEl('#setting-lv').textContent = 等级文字.最低等级 + 等级文字.最高等级;
     getEl('#setting-songlist').textContent = 歌单名[设置.歌单];
+    getEl('#setting-category').textContent = tempArr.join('、');
 
     // 隐藏设置框
     getEl('.option-main')[0].classList.remove('show');

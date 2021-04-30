@@ -26,7 +26,6 @@ a {
   padding: 20px;
   .result-area {
     text-align: center;
-    min-height: 450px;
     .cover-img {
       display: block;
       width: 200px;
@@ -42,7 +41,7 @@ a {
     }
     .song-title {
       color: #2e94f4;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1.5;
       margin: 0;
     }
@@ -117,6 +116,30 @@ a {
       }
     }
   }
+  .setting-info {
+    text-align: center;
+    color: #333;
+    b {
+      color: #000;
+    }
+    .setting-rank {
+      &.B {
+        color: #6fd43d;
+      }
+      &.A {
+        color: #f8b709;
+      }
+      &.E {
+        color: #ff818d;
+      }
+      &.M {
+        color: #9f51dc;
+      }
+      &.R {
+        color: #c346e7;
+      }
+    }
+  }
   .setting-area {
     margin: 20px auto;
     > button {
@@ -136,8 +159,8 @@ a {
     .roll-button {
       background-color: #b1d230;
       border: 3px solid #708e00;
-      text-shadow: 0px 2px 2px #708e00, 2px 0px 2px #708e00,
-        -2px 0px 2px #708e00, 0px -2px 2px #708e00;
+      text-shadow: 0 2px 2px #708e00, 2px 0 2px #708e00, -2px 0 2px #708e00,
+        0 -2px 2px #708e00;
       &[disabled] {
         cursor: not-allowed;
         opacity: 0.5;
@@ -146,8 +169,8 @@ a {
     .random-roll {
       background-color: #f6b32c;
       border: 3px solid #e17400;
-      text-shadow: 0px 2px 2px #e17400, 2px 0px 2px #e17400,
-        -2px 0px 2px #e17400, 0px -2px 2px #e17400;
+      text-shadow: 0 2px 2px #e17400, 2px 0 2px #e17400, -2px 0 2px #e17400,
+        0 -2px 2px #e17400;
       &[disabled] {
         cursor: not-allowed;
         opacity: 0.5;
@@ -156,8 +179,8 @@ a {
     .setting-button {
       background-color: #82d0ce;
       border: 3px solid #259bc6;
-      text-shadow: 0px 2px 2px #259bc6, 2px 0px 2px #259bc6,
-        -2px 0px 2px #259bc6, 0px -2px 2px #259bc6;
+      text-shadow: 0 2px 2px #259bc6, 2px 0 2px #259bc6, -2px 0 2px #259bc6,
+        0 -2px 2px #259bc6;
     }
   }
   .footer {
@@ -217,8 +240,13 @@ a {
       .option-block-rank {
         display: flex;
         .rank-label {
+          user-select: none;
           width: calc(1 / 6 * 100%);
           text-align: center;
+          margin: 5px;
+          &:hover {
+            cursor: pointer;
+          }
           input[type="radio"] {
             display: none;
           }
@@ -226,7 +254,6 @@ a {
             display: block;
             border: 3px solid #ccc;
             padding: 5px;
-            margin: 5px;
           }
           &.all {
             input:checked ~ .inner {
@@ -272,6 +299,95 @@ a {
             }
             input:checked ~ .inner {
               background-color: #e9e6ff;
+            }
+          }
+        }
+      }
+
+      .option-block-category {
+        margin: 1em auto;
+        .cat-options {
+          display: flex;
+          flex-wrap: wrap;
+          .cat-label {
+            user-select: none;
+            margin: 5px;
+            &:hover {
+              cursor: pointer;
+            }
+            input[type="checkbox"] {
+              display: none;
+            }
+            .inner {
+              display: block;
+              border: 3px solid #ccc;
+              padding: 5px;
+            }
+
+            input:checked ~ .inner {
+              color: #fff;
+            }
+
+            &.all {
+              color: #ccc;
+              input:checked ~ .inner {
+                color: #fb6099;
+                border-color: #fb6099;
+              }
+            }
+            &.pops_anime {
+              color: #ff972a;
+              input:checked ~ .inner {
+                border-color: #ff972a;
+                background-color: #ffc98f;
+                text-shadow: 0 2px 2px #ff972a, 2px 0 2px #ff972a,
+                  -2px 0 2px #ff972a, 0 -2px 2px #ff972a;
+              }
+            }
+            &.niconico {
+              color: #09c8d4;
+              input:checked ~ .inner {
+                border-color: #09c8d4;
+                background-color: #85e6ed;
+                text-shadow: 0 2px 2px #09c8d4, 2px 0 2px #09c8d4,
+                  -2px 0 2px #09c8d4, 0 -2px 2px #09c8d4;
+              }
+            }
+            &.toho {
+              color: #ad59ee;
+              input:checked ~ .inner {
+                border-color: #ad59ee;
+                background-color: #d4a2fa;
+                text-shadow: 0 2px 2px #ad59ee, 2px 0 2px #ad59ee,
+                  -2px 0 2px #ad59ee, 0 -2px 2px #ad59ee;
+              }
+            }
+            &.variety {
+              color: #42de6a;
+              input:checked ~ .inner {
+                border-color: #42de6a;
+                background-color: #9bf2b1;
+                text-shadow: 0 2px 2px #42de6a, 2px 0 2px #42de6a,
+                  -2px 0 2px #42de6a, 0 -2px 2px #42de6a;
+              }
+            }
+            &.maimai {
+              color: #f74949;
+              input:checked ~ .inner {
+                border-color: #f74949;
+                background-color: #fc9d9d;
+                text-shadow: 0 2px 2px #f74949, 2px 0 2px #f74949,
+                  -2px 0 2px #f74949, 0 -2px 2px #f74949;
+              }
+            }
+            &.gekichu {
+              color: #3585fe;
+              input:checked ~ .inner {
+                border-color: #3585fe;
+                background-color: #94bfff;
+                text-shadow: 0 2px 2px #3585fe, 2px 0 2px #3585fe,
+                  -2px 0 2px #3585fe, 0 -2px 2px #3585fe;
+              }
             }
           }
         }
@@ -330,8 +446,8 @@ a {
       cursor: pointer;
       background-color: #82d0ce;
       border: 3px solid #259bc6;
-      text-shadow: 0px 2px 2px #259bc6, 2px 0px 2px #259bc6,
-        -2px 0px 2px #259bc6, 0px -2px 2px #259bc6;
+      text-shadow: 0 2px 2px #259bc6, 2px 0 2px #259bc6, -2px 0 2px #259bc6,
+        0 -2px 2px #259bc6;
     }
   }
 }

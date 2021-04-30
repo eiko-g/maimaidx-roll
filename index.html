@@ -57,6 +57,22 @@
         </table>
       </div>
 
+      <div class="setting-info">
+        <p>
+          <b>难度</b>：
+          [<span id="setting-rank" class="setting-rank">难度</span>]
+          <span id="setting-lv">未设置</span>
+        </p>
+        <p>
+          <b>歌单选择</b>：
+          <span id="setting-songlist">未设置</span>
+        </p>
+        <p>
+          <b>抽选分类</b>：
+          <span id="setting-category">全分类</span>
+        </p>
+      </div>
+
       <div class="setting-area">
         <button id="roll-button" class="roll-button" disabled>
           按条件抽歌
@@ -65,19 +81,8 @@
         <button id="random-roll" class="random-roll">随便来一首</button>
       </div>
 
-      <div class="setting-info">
-        <p>
-          难度：
-          <span id="setting-lv">[难度] 未设置</span>
-        </p>
-        <p>
-          歌单选择：
-          <span id="setting-songlist">未设置</span>
-        </p>
-      </div>
-
       <div class="footer">
-        <p>ver 0.01-20210430.01</p>
+        <p>ver 0.10-20210501.01</p>
         <p>
           <a
             href="https://github.com/eiko-g/maimaidx-roll"
@@ -127,6 +132,40 @@
                 <input type="radio" name="难度" id="lv-rank-R" value="R" />
                 <span class="inner">R</span>
               </label>
+            </div>
+
+            <div class="option-block-category">
+              <h3 class="option-title">分类选择</h3>
+              <div class="cat-options">
+                <label for="cat-all" class="cat-label all">
+                  <input type="checkbox" name="分类" id="cat-all" value="all" checked="checked">
+                  <span class="inner">全部</span>
+                </label>
+                <label for="cat-pops_anime" class="cat-label pops_anime">
+                  <input type="checkbox" name="分类" id="cat-pops_anime" value="pops_anime">
+                  <span class="inner">动画 & 流行</span>
+                </label>
+                <label for="cat-niconico" class="cat-label niconico">
+                  <input type="checkbox" name="分类" id="cat-niconico" value="niconico">
+                  <span class="inner">nico & V家</span>
+                </label>
+                <label for="cat-toho" class="cat-label toho">
+                  <input type="checkbox" name="分类" id="cat-toho" value="toho">
+                  <span class="inner">东方 Project</span>
+                </label>
+                <label for="cat-variety" class="cat-label variety">
+                  <input type="checkbox" name="分类" id="cat-variety" value="variety">
+                  <span class="inner">其他游戏</span>
+                </label>
+                <label for="cat-maimai" class="cat-label maimai">
+                  <input type="checkbox" name="分类" id="cat-maimai" value="maimai">
+                  <span class="inner">maimai</span>
+                </label>
+                <label for="cat-gekichu" class="cat-label gekichu">
+                  <input type="checkbox" name="分类" id="cat-gekichu" value="gekichu">
+                  <span class="inner">音击 & 中二</span>
+                </label>
+              </div>
             </div>
 
             <div class="option-block-range">
