@@ -27,25 +27,59 @@ a {
   padding: 20px;
   .result-area {
     text-align: center;
-    .cover-img {
-      display: block;
-      width: 200px;
-      height: 200px;
-      margin: 10px auto;
-      &.B {
-        box-shadow: 0 0 0 5px $color-B;
+    .cover-area {
+      position: relative;
+      .cover-img {
+        display: block;
+        width: 200px;
+        height: 200px;
+        margin: 10px auto 20px;
+        &.B {
+          box-shadow: 0 0 0 5px $color-B;
+        }
+        &.A {
+          box-shadow: 0 0 0 5px $color-A;
+        }
+        &.E {
+          box-shadow: 0 0 0 5px $color-E;
+        }
+        &.M {
+          box-shadow: 0 0 0 5px $color-M;
+        }
+        &.R {
+          box-shadow: 0 0 0 5px $color-R;
+        }
       }
-      &.A {
-        box-shadow: 0 0 0 5px $color-A;
-      }
-      &.E {
-        box-shadow: 0 0 0 5px $color-E;
-      }
-      &.M {
-        box-shadow: 0 0 0 5px $color-M;
-      }
-      &.R {
-        box-shadow: 0 0 0 5px $color-R;
+      .song-type {
+        display: inline-block;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-left: 50%;
+        transform: translateX(-50%) translateY(50%);
+        background-color: #45aeff;
+        border-radius: 999em;
+        box-shadow: 0 0 3px 1px #ccc;
+        .text {
+          display: inline-block;
+          padding: 5px 8px;
+          font-size: 16px;
+          color: #fff;
+          font-weight: bold;
+        }
+        &.DX {
+          background-color: #fff;
+          box-shadow: 0 0 3px 1px #ccc;
+          .text {
+            color: #ff4628;
+            background: linear-gradient(150deg, #ff4628 50%, #faad07 50% 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+          }
+        }
       }
     }
     .cover-tip {

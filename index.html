@@ -26,18 +26,20 @@
     <div class="main-body">
       <div class="result-area">
         <p class="cover-tip">※ 封面切换时载入稍慢</p>
-        <img
+        <div class="cover-area">
+          <img
           src="./static/img/nocover.png"
           alt="Cover"
           id="cover"
           class="cover-img"
-        />
+          />
+          <div class="song-type">
+            <span id="type" class="text">谱面类型</span>
+          </div>
+        </div>
         <h3 id="title" class="song-title" lang="ja-jp">油婶么呢？</h3>
         <p class="song-info">
           <span id="category" class="song-cat">分类</span>
-          - [
-          <span id="type">谱面类型</span>
-          ]
         </p>
         <table class="table-lv">
           <thead>
@@ -68,12 +70,12 @@
           <span id="setting-lv">未设置</span>
         </p>
         <p>
-          <b>歌单选择</b>：
-          <span id="setting-songlist">未设置</span>
-        </p>
-        <p>
           <b>抽选分类</b>：
           <span id="setting-category">全分类</span>
+        </p>
+        <p>
+          <b>歌单选择</b>：
+          <span id="setting-songlist">未设置</span>
         </p>
       </div>
 

@@ -454,6 +454,11 @@ docReady(() => {
     } else {
       getEl('#cover').setAttribute('src', './static/img/nocover.png');
     }
+    if (抽到的歌.类型 == 'DX') {
+      getEl('#type').parentNode.classList.add('DX');
+    } else {
+      getEl('#type').parentNode.classList.remove('DX');
+    }
 
     for (const [难度] of Object.entries(抽到的歌.等级)) {
       getEl(`#table-lv-num-${难度}`).textContent = 抽到的歌.等级[难度];
@@ -578,6 +583,7 @@ docReady(() => {
       getEl('.table-lv-num').forEach(el => {
         el.classList.remove('current');
       });
+      getEl('#cover').classList.remove('B', 'A', 'E', 'M', 'R');
     }
   });
 });
