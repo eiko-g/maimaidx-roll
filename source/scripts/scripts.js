@@ -552,9 +552,14 @@ docReady(() => {
     getEl('.table-lv-num').forEach(el => {
       el.classList.remove('current');
     });
+    // 封面也整个框
+    getEl('#cover').classList.remove('B', 'A', 'E', 'M', 'R');
     if ((要展示的难度) && (要展示的难度.length != 0)) {
       console.log('最终展示的难度：', 要展示的难度);
       getEl(`#table-lv-num-${要展示的难度}`).classList.add('current');
+
+      // 封面的框
+      getEl('#cover').classList.add(要展示的难度);
     }
   });
 

@@ -1,3 +1,4 @@
+@import "basic";
 *,
 *::before,
 *::after {
@@ -31,6 +32,21 @@ a {
       width: 200px;
       height: 200px;
       margin: 10px auto;
+      &.B {
+        box-shadow: 0 0 0 5px $color-B;
+      }
+      &.A {
+        box-shadow: 0 0 0 5px $color-A;
+      }
+      &.E {
+        box-shadow: 0 0 0 5px $color-E;
+      }
+      &.M {
+        box-shadow: 0 0 0 5px $color-M;
+      }
+      &.R {
+        box-shadow: 0 0 0 5px $color-R;
+      }
     }
     .cover-tip {
       font-size: 12px;
@@ -51,19 +67,19 @@ a {
       margin: 0;
       #lv-name {
         &.B {
-          background-color: #ccffcc;
+          background-color: $color-B;
         }
         &.A {
-          background-color: #ffdd99;
+          background-color: $color-A;
         }
         &.E {
-          background-color: #ffccf7;
+          background-color: $color-E;
         }
         &.M {
-          background-color: #eeccff;
+          background-color: $color-M;
         }
         &.R {
-          background-color: #e9e6ff;
+          background-color: $color-R;
         }
       }
     }
@@ -82,36 +98,36 @@ a {
       }
       .table-lv-name {
         &.B {
-          background-color: #ccffcc;
+          background-color: $color-B;
         }
         &.A {
-          background-color: #ffdd99;
+          background-color: $color-A;
         }
         &.E {
-          background-color: #ffccf7;
+          background-color: $color-E;
         }
         &.M {
-          background-color: #eeccff;
+          background-color: $color-M;
         }
         &.R {
-          background-color: #e9e6ff;
+          background-color: $color-R;
         }
       }
       #table-lv-num {
         &-B.current {
-          background-color: #ccffcc;
+          background-color: $color-B;
         }
         &-A.current {
-          background-color: #ffdd99;
+          background-color: $color-A;
         }
         &-E.current {
-          background-color: #ffccf7;
+          background-color: $color-E;
         }
         &-M.current {
-          background-color: #eeccff;
+          background-color: $color-M;
         }
         &-R.current {
-          background-color: #e9e6ff;
+          background-color: $color-R;
         }
       }
     }
@@ -124,19 +140,19 @@ a {
     }
     .setting-rank {
       &.B {
-        color: #6fd43d;
+        color: $color-B-dark;
       }
       &.A {
-        color: #f8b709;
+        color: $color-A-dark;
       }
       &.E {
-        color: #ff818d;
+        color: $color-E-dark;
       }
       &.M {
-        color: #9f51dc;
+        color: $color-M-dark;
       }
       &.R {
-        color: #c346e7;
+        color: $color-R-dark;
       }
     }
   }
@@ -263,42 +279,42 @@ a {
           }
           &.B {
             .inner {
-              border-color: #ccffcc;
+              border-color: $color-B;
             }
             input:checked ~ .inner {
-              background-color: #ccffcc;
+              background-color: $color-B;
             }
           }
           &.A {
             .inner {
-              border-color: #ffdd99;
+              border-color: $color-A;
             }
             input:checked ~ .inner {
-              background-color: #ffdd99;
+              background-color: $color-A;
             }
           }
           &.E {
             .inner {
-              border-color: #ffccf7;
+              border-color: $color-E;
             }
             input:checked ~ .inner {
-              background-color: #ffccf7;
+              background-color: $color-E;
             }
           }
           &.M {
             .inner {
-              border-color: #eeccff;
+              border-color: $color-M;
             }
             input:checked ~ .inner {
-              background-color: #eeccff;
+              background-color: $color-M;
             }
           }
           &.R {
             .inner {
-              border-color: #e9e6ff;
+              border-color: $color-R;
             }
             input:checked ~ .inner {
-              background-color: #e9e6ff;
+              background-color: $color-R;
             }
           }
         }
@@ -420,8 +436,8 @@ a {
           input[type="radio"] {
             display: none;
             &:checked ~ .songlist-label {
-              border-color: #eeccff;
-              background-color: #eeccff;
+              border-color: $color-M;
+              background-color: $color-M;
             }
           }
           .songlist-label {
