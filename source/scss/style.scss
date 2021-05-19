@@ -4,7 +4,9 @@
 *::after {
   box-sizing: border-box;
 }
-
+html {
+  font-family: sans-serif;
+}
 body {
   background: #00b9ef;
   margin: 0;
@@ -77,7 +79,7 @@ a {
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
+            // text-fill-color: transparent;
           }
         }
       }
@@ -173,19 +175,19 @@ a {
       color: #000;
     }
     .setting-rank {
-      &.B {
+      .B {
         color: $color-B-dark;
       }
-      &.A {
+      .A {
         color: $color-A-dark;
       }
-      &.E {
+      .E {
         color: $color-E-dark;
       }
-      &.M {
+      .M {
         color: $color-M-dark;
       }
-      &.R {
+      .R {
         color: $color-R-dark;
       }
     }
@@ -297,7 +299,7 @@ a {
           &:hover {
             cursor: pointer;
           }
-          input[type="radio"] {
+          input[type="checkbox"] {
             display: none;
           }
           .inner {

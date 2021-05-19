@@ -1,261 +1,215 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>买买 DX 曲目抽奖页面</title>
-    <link rel="shortcut icon" href="./favicon.png" />
-    <link rel="stylesheet" href="./static/css/normalize.css?ver=8.0.1" />
-    <!-- build:css -->
-    <link rel="stylesheet" href="./static/css/style.css?ver=20210302.01" />
-    <!-- endbuild -->
-    <!-- build:js -->
-    <script src="./static/scripts/scripts.js?ver=20210302.01"></script>
-    <!-- endbuild -->
-  </head>
 
-  <body>
-    <script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>买买 DX 曲目抽奖页面</title>
+  <link rel="shortcut icon" href="./favicon.png" />
+  <link rel="stylesheet" href="./static/css/normalize.css?ver=8.0.1" />
+  <!-- build:css -->
+  <link rel="stylesheet" href="./static/css/style.css?ver=20210519.01" />
+  <!-- endbuild -->
+  <!-- build:js -->
+  <script src="./static/scripts/scripts.js?ver=20210519.01"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <script>
       // https 网页内跳转，能 HSTS 的就最好不用这个啦
       // if (location.protocol != 'https:') {
       //     location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
       // }
-    </script>
+  </script>
 
-    <div class="main-body">
-      <div class="result-area">
-        <p class="cover-tip">※ 封面切换时载入稍慢</p>
-        <div class="cover-area">
-          <img
-          src="./static/img/nocover.png"
-          alt="Cover"
-          id="cover"
-          class="cover-img"
-          />
-          <div class="song-type">
-            <span id="type" class="text">谱面类型</span>
-          </div>
+  <div class="main-body">
+    <div class="result-area">
+      <p class="cover-tip">※ 封面切换时载入稍慢</p>
+      <div class="cover-area">
+        <img src="./static/img/nocover.png" alt="Cover" id="cover" class="cover-img" />
+        <div class="song-type">
+          <span id="type" class="text">谱面类型</span>
         </div>
-        <h3 id="title" class="song-title" lang="ja-jp">油婶么呢？</h3>
-        <p class="song-info">
-          <span id="category" class="song-cat">分类</span>
-        </p>
-        <table class="table-lv">
-          <thead>
-            <tr>
-              <th class="table-lv-name B">B</th>
-              <th class="table-lv-name A">A</th>
-              <th class="table-lv-name E">E</th>
-              <th class="table-lv-name M">M</th>
-              <th class="table-lv-name R">R</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="table-lv-num-B" class="table-lv-num">m</td>
-              <td id="table-lv-num-A" class="table-lv-num">a</td>
-              <td id="table-lv-num-E" class="table-lv-num">i</td>
-              <td id="table-lv-num-M" class="table-lv-num">D</td>
-              <td id="table-lv-num-R" class="table-lv-num">X</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
-
-      <div class="setting-info">
-        <p>
-          <b>难度</b>：
-          [<span id="setting-rank" class="setting-rank">难度</span>]
-          <span id="setting-lv">未设置</span>
-        </p>
-        <p>
-          <b>抽选分类</b>：
-          <span id="setting-category">全分类</span>
-        </p>
-        <p>
-          <b>歌单选择</b>：
-          <span id="setting-songlist">未设置</span>
-        </p>
-      </div>
-
-      <div class="setting-area">
-        <button id="roll-button" class="roll-button" disabled>
-          按条件抽歌
-        </button>
-        <button id="setting-button" class="setting-button">抽奖设置</button>
-        <button id="random-roll" class="random-roll">随便来一首</button>
-      </div>
-
-      <div class="footer">
-        <p>ver 0.12-20210501.03</p>
-        <p>
-          <a
-            href="https://github.com/eiko-g/maimaidx-roll"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GayHub
-          </a>
-        </p>
-      </div>
+      <h3 id="title" class="song-title" lang="ja-jp">油婶么呢？</h3>
+      <p class="song-info">
+        <span id="category" class="song-cat">分类</span>
+      </p>
+      <table class="table-lv">
+        <thead>
+          <tr>
+            <th class="table-lv-name B">B</th>
+            <th class="table-lv-name A">A</th>
+            <th class="table-lv-name E">E</th>
+            <th class="table-lv-name M">M</th>
+            <th class="table-lv-name R">R</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="table-lv-num-B" class="table-lv-num">m</td>
+            <td id="table-lv-num-A" class="table-lv-num">a</td>
+            <td id="table-lv-num-E" class="table-lv-num">i</td>
+            <td id="table-lv-num-M" class="table-lv-num">D</td>
+            <td id="table-lv-num-R" class="table-lv-num">X</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="option-main">
-      <div class="option-body">
-        <form id="option-form">
-          <h2 class="option-main-title">抽奖设置</h2>
-          <div class="option-block lv">
-            <h3 class="option-title">难度设置</h3>
-            <div class="option-block-rank">
-              <label class="rank-label all" for="lv-rank-all">
-                <input
-                  type="radio"
-                  name="难度"
-                  id="lv-rank-all"
-                  value="all"
-                  checked="checked"
-                />
-                <span class="inner">All</span>
-              </label>
-              <label class="rank-label B" for="lv-rank-B">
-                <input type="radio" name="难度" id="lv-rank-B" value="B" />
-                <span class="inner">B</span>
-              </label>
-              <label class="rank-label A" for="lv-rank-A">
-                <input type="radio" name="难度" id="lv-rank-A" value="A" />
-                <span class="inner">A</span>
-              </label>
-              <label class="rank-label E" for="lv-rank-E">
-                <input type="radio" name="难度" id="lv-rank-E" value="E" />
-                <span class="inner">E</span>
-              </label>
-              <label class="rank-label M" for="lv-rank-M">
-                <input type="radio" name="难度" id="lv-rank-M" value="M" />
-                <span class="inner">M</span>
-              </label>
-              <label class="rank-label R" for="lv-rank-R">
-                <input type="radio" name="难度" id="lv-rank-R" value="R" />
-                <span class="inner">R</span>
-              </label>
-            </div>
+    <div class="setting-info">
+      <p>
+        <b>难度</b>：
+        [<span id="setting-rank" class="setting-rank">难度</span>]
+        <span id="setting-lv">未设置</span>
+      </p>
+      <p>
+        <b>抽选分类</b>：
+        <span id="setting-category">全分类</span>
+      </p>
+      <p>
+        <b>歌单选择</b>：
+        <span id="setting-songlist">未设置</span>
+      </p>
+    </div>
 
-            <div class="option-block-category">
-              <h3 class="option-title">分类选择</h3>
-              <div class="cat-options">
-                <label for="cat-all" class="cat-label all">
-                  <input type="checkbox" name="分类" id="cat-all" value="all" checked="checked">
-                  <span class="inner">全部</span>
-                </label>
-                <label for="cat-pops_anime" class="cat-label pops_anime">
-                  <input type="checkbox" name="分类" id="cat-pops_anime" value="pops_anime">
-                  <span class="inner">动画 & 流行</span>
-                </label>
-                <label for="cat-niconico" class="cat-label niconico">
-                  <input type="checkbox" name="分类" id="cat-niconico" value="niconico">
-                  <span class="inner">nico & V家</span>
-                </label>
-                <label for="cat-toho" class="cat-label toho">
-                  <input type="checkbox" name="分类" id="cat-toho" value="toho">
-                  <span class="inner">东方 Project</span>
-                </label>
-                <label for="cat-variety" class="cat-label variety">
-                  <input type="checkbox" name="分类" id="cat-variety" value="variety">
-                  <span class="inner">其他游戏</span>
-                </label>
-                <label for="cat-maimai" class="cat-label maimai">
-                  <input type="checkbox" name="分类" id="cat-maimai" value="maimai">
-                  <span class="inner">maimai</span>
-                </label>
-                <label for="cat-gekichu" class="cat-label gekichu">
-                  <input type="checkbox" name="分类" id="cat-gekichu" value="gekichu">
-                  <span class="inner">音击 & 中二</span>
-                </label>
-              </div>
-            </div>
+    <div class="setting-area">
+      <button id="roll-button" class="roll-button" disabled>
+        按条件抽歌
+      </button>
+      <button id="setting-button" class="setting-button">抽奖设置</button>
+      <button id="random-roll" class="random-roll">随便来一首</button>
+    </div>
 
-            <div class="option-block-range">
-              <h3 class="option-title">范围设置</h3>
-              <div class="option-block-range-inner">
-                <label for="lv-range-s" class="option-range">
-                  <input type="radio" name="范围" id="lv-range-s" value="单" checked>
-                  <span class="inner">单难度</span>
-                </label>
-                <label for="lv-range-m" class="option-range m">
-                  <input type="radio" name="范围" id="lv-range-m" value="多">
-                  <span class="inner">范围难度</span>
-                </label>
-              </div>
-            </div>
+    <div class="footer">
+      <p>ver DEV.0.20-20210519.01</p>
+      <p>
+        <a href="https://github.com/eiko-g/maimaidx-roll" target="_blank" rel="noopener noreferrer">
+          GayHub
+        </a>
+      </p>
+    </div>
+  </div>
 
-            <div class="option-block-lv">
-              <label for="lv-min" class="option-label">最低抽取等级：</label>
-              <input
-                type="number"
-                class="option-input"
-                id="lv-min"
-                name="最低等级"
-                placeholder="仅数字"
-                min="1"
-                max="15"
-                required="required"
-              />
-            </div>
-            <div class="option-block-lv">
-              <label for="lv-min-plus" class="option-label">
-                <input
-                  type="checkbox"
-                  id="lv-min-plus"
-                  name="最低等级带加号"
-                  class="option-check"
-                />
-                最低等级带 + 号
+  <div class="option-main">
+    <div class="option-body">
+      <form id="option-form">
+        <h2 class="option-main-title">抽奖设置</h2>
+        <div class="option-block lv">
+          <h3 class="option-title">难度设置</h3>
+          <div class="option-block-rank">
+            <label class="rank-label all" for="lv-rank-all">
+              <input type="checkbox" name="难度" id="lv-rank-all" value="all" checked="checked" />
+              <span class="inner">All</span>
+            </label>
+            <label class="rank-label B" for="lv-rank-B">
+              <input type="checkbox" name="难度" id="lv-rank-B" value="B" />
+              <span class="inner">B</span>
+            </label>
+            <label class="rank-label A" for="lv-rank-A">
+              <input type="checkbox" name="难度" id="lv-rank-A" value="A" />
+              <span class="inner">A</span>
+            </label>
+            <label class="rank-label E" for="lv-rank-E">
+              <input type="checkbox" name="难度" id="lv-rank-E" value="E" />
+              <span class="inner">E</span>
+            </label>
+            <label class="rank-label M" for="lv-rank-M">
+              <input type="checkbox" name="难度" id="lv-rank-M" value="M" />
+              <span class="inner">M</span>
+            </label>
+            <label class="rank-label R" for="lv-rank-R">
+              <input type="checkbox" name="难度" id="lv-rank-R" value="R" />
+              <span class="inner">R</span>
+            </label>
+          </div>
+
+          <div class="option-block-category">
+            <h3 class="option-title">分类选择</h3>
+            <div class="cat-options">
+              <label for="cat-all" class="cat-label all">
+                <input type="checkbox" name="分类" id="cat-all" value="all" checked="checked">
+                <span class="inner">全部</span>
               </label>
-            </div>
-
-            <div id="option-lv-max" class="option-block-lv">
-              <label for="lv-max" class="option-label">最高抽取等级：</label>
-              <input
-                type="number"
-                class="option-input"
-                id="lv-max"
-                name="最高等级"
-                placeholder="留空就只抽最低"
-                min="1"
-                max="15"
-              />
-            </div>
-            <div id="option-lv-max-plus" class="option-block-lv">
-              <label for="lv-max-plus" class="option-label">
-                <input
-                  type="checkbox"
-                  id="lv-max-plus"
-                  name="最高等级带加号"
-                  class="option-check"
-                />
-                最高等级带 + 号
+              <label for="cat-pops_anime" class="cat-label pops_anime">
+                <input type="checkbox" name="分类" id="cat-pops_anime" value="pops_anime">
+                <span class="inner">动画 & 流行</span>
+              </label>
+              <label for="cat-niconico" class="cat-label niconico">
+                <input type="checkbox" name="分类" id="cat-niconico" value="niconico">
+                <span class="inner">nico & V家</span>
+              </label>
+              <label for="cat-toho" class="cat-label toho">
+                <input type="checkbox" name="分类" id="cat-toho" value="toho">
+                <span class="inner">东方 Project</span>
+              </label>
+              <label for="cat-variety" class="cat-label variety">
+                <input type="checkbox" name="分类" id="cat-variety" value="variety">
+                <span class="inner">其他游戏</span>
+              </label>
+              <label for="cat-maimai" class="cat-label maimai">
+                <input type="checkbox" name="分类" id="cat-maimai" value="maimai">
+                <span class="inner">maimai</span>
+              </label>
+              <label for="cat-gekichu" class="cat-label gekichu">
+                <input type="checkbox" name="分类" id="cat-gekichu" value="gekichu">
+                <span class="inner">音击 & 中二</span>
               </label>
             </div>
           </div>
 
-          <div class="option-block songlist">
-            <h3 class="option-title">选择歌单</h3>
-            <div class="option-block-songlist">
-              <div class="songlist-item">
-                <input
-                  type="radio"
-                  name="歌单"
-                  id="songlist-maimaidxCN"
-                  value="maimaidxCN"
-                  checked="checked"
-                />
-                <label for="songlist-maimaidxCN" class="songlist-label">
-                  舞萌DX ver.CH1.11
-                </label>
-              </div>
+          <div class="option-block-range">
+            <h3 class="option-title">范围设置</h3>
+            <div class="option-block-range-inner">
+              <label for="lv-range-s" class="option-range">
+                <input type="radio" name="范围" id="lv-range-s" value="单" checked>
+                <span class="inner">单难度</span>
+              </label>
+              <label for="lv-range-m" class="option-range m">
+                <input type="radio" name="范围" id="lv-range-m" value="多">
+                <span class="inner">范围难度</span>
+              </label>
             </div>
+          </div>
 
-            <!-- <div class="option-block-songlist">
+          <div class="option-block-lv">
+            <label for="lv-min" class="option-label">最低抽取等级：</label>
+            <input type="number" class="option-input" id="lv-min" name="最低等级" placeholder="仅数字" min="1" max="15"
+              required="required" />
+          </div>
+          <div class="option-block-lv">
+            <label for="lv-min-plus" class="option-label">
+              <input type="checkbox" id="lv-min-plus" name="最低等级带加号" class="option-check" />
+              最低等级带 + 号
+            </label>
+          </div>
+
+          <div id="option-lv-max" class="option-block-lv">
+            <label for="lv-max" class="option-label">最高抽取等级：</label>
+            <input type="number" class="option-input" id="lv-max" name="最高等级" placeholder="留空就只抽最低" min="1" max="15" />
+          </div>
+          <div id="option-lv-max-plus" class="option-block-lv">
+            <label for="lv-max-plus" class="option-label">
+              <input type="checkbox" id="lv-max-plus" name="最高等级带加号" class="option-check" />
+              最高等级带 + 号
+            </label>
+          </div>
+        </div>
+
+        <div class="option-block songlist">
+          <h3 class="option-title">选择歌单</h3>
+          <div class="option-block-songlist">
+            <div class="songlist-item">
+              <input type="radio" name="歌单" id="songlist-maimaidxCN" value="maimaidxCN" checked="checked" />
+              <label for="songlist-maimaidxCN" class="songlist-label">
+                舞萌DX ver.CH1.11
+              </label>
+            </div>
+          </div>
+
+          <!-- <div class="option-block-songlist">
               <div class="songlist-item">
                 <input
                   type="radio"
@@ -268,7 +222,7 @@
                 </label>
               </div>
             </div> -->
-<!-- 
+          <!-- 
             <div class="option-block-songlist">
               <div class="songlist-item">
                 <input
@@ -282,18 +236,15 @@
                 </label>
               </div>
             </div> -->
-          </div>
+        </div>
 
-          <p class="tips">* 因为是手动采集修改数据的，所以可能会有错误，如果发现的话可以联系我，或者在 <a href="https://github.com/eiko-g/maimaidx-roll" target="_blank" rel="noopener noreferrer">GayHub</a> 发个 Issue 啥的。</p>
+        <p class="tips">* 因为是手动采集修改数据的，所以可能会有错误，如果发现的话可以联系我，或者在 <a href="https://github.com/eiko-g/maimaidx-roll"
+            target="_blank" rel="noopener noreferrer">GayHub</a> 发个 Issue 啥的。</p>
 
-          <input
-            id="save-option"
-            class="save-option"
-            type="submit"
-            value="保存设置"
-          />
-        </form>
-      </div>
+        <input id="save-option" class="save-option" type="submit" value="保存设置" />
+      </form>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
