@@ -8,7 +8,7 @@ html {
   font-family: sans-serif;
 }
 body {
-  background: #00b9ef;
+  background: rgb(77, 119, 255);
   margin: 0;
   padding: 0;
 }
@@ -18,13 +18,22 @@ a {
 }
 
 .main-body {
+  background-repeat: no-repeat;
+  background-position: center right;
   background-color: #fff;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.8) 100%
+    ),
+    url("../img/otohime.png");
+  background-size: 50%;
   width: 90%;
   max-width: 600px;
   min-height: 90vh;
   margin: 30px auto;
-  box-shadow: 0 0 0 3px #51bcf3, 0 0 0 6px #2e94f4, 0 0 0 9px #fff,
-    0 0 10px 9px #999;
+  box-shadow: 0 0 0 5px #fbe426, 0 0 0 10px #fff, 0 0 0 15px #7be0b6,
+    0 0 0 20px rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 20px;
   .result-area {
