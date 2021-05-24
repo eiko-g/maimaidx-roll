@@ -127,6 +127,7 @@ docReady(() => {
       M: 'Master',
       R: 'Re:Master'
     };
+  window.aaa = 载入的JSON;
   //#region 载入歌单
   function 载入歌单(文件名, 版本 = 1) {
     let 载入次数;
