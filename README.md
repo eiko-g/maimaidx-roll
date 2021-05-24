@@ -67,6 +67,7 @@ gulp upload
 
 - [maimai fc2 wiki](https://maimai.wiki.fc2.com/)
 - [maimaiDX Offcial](https://maimai.sega.jp/song/)
+- [官方数据.json（日版）](https://maimai.sega.jp/data/DXsongs.json)
 - [maimai 中文维基](https://maimai.fandom.com/zh/wiki/Maimai%E4%B8%AD%E6%96%87_%E7%BB%B4%E5%9F%BA)
 
 ---
