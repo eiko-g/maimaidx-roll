@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
     "delete": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",

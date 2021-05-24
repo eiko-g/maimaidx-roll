@@ -104,8 +104,9 @@ function upload() {
         base: './build',
         buffer: false
     })
-        .pipe(conn.newer('/maimai'))
-        .pipe(conn.dest('/maimai'))
+        // newer 是只上传新文件
+        .pipe(conn.newer(ftpConfig().webDir))
+        .pipe(conn.dest(ftpConfig().webDir))
 }
 
 exports.clean = clean;
