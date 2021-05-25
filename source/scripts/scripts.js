@@ -153,7 +153,7 @@ docReady(() => {
       }
     });
   }
-  载入歌单('maimaidxCN', 2021051901);
+  载入歌单('maimaidxCN', 2021052502);
   // 载入歌单('test', 1111);
   //#endregion
 
@@ -162,6 +162,8 @@ docReady(() => {
     收歌按钮 = getEl('#random-roll');
   // 先禁掉按钮，不然有时候刷新没有被禁
   Roll歌按钮.setAttribute('disabled', 'disabled');
+  // 有时候这个设置也是问题，影响调试
+  getEl('#lv-range-s').click();
   //#region 设置框相关
   let 设置按钮 = getEl('#setting-button');
   // 显示设置框
@@ -179,56 +181,33 @@ docReady(() => {
     getEl('#option-lv-max-plus').classList.add('show');
   });
 
-  //#region 难度选择
-  // 跟分类一样写就行了
-  // 点了全部难度就把别的难度取消掉
-  getEl('.rank-label.all input')[0].addEventListener('click', function () {
-    getEl('.rank-label:not(.all) input').forEach(item => {
-      item.checked = false;
-    });
-    // 不给点掉全部难度
-    if (this.checked == false) {
-      this.checked = true;
-    }
-  });
-
-  // 点了其他难度就把全部难度取消掉
-  getEl('.rank-label:not(.all) input').forEach(item => {
-    item.addEventListener('click', () => {
-      if (getEl('.rank-label:not(.all) input:checked').length != 0) {
-        getEl('.rank-label.all input')[0].checked = false;
-      } else {
-        // 如果难度被全部取消的话就勾上全选
-        getEl('.rank-label.all input')[0].checked = true;
+  function 多项选择处理(all, other) {
+    // 点了全部就把别的取消掉
+    getEl(all)[0].addEventListener('click', function () {
+      getEl(other).forEach(item => {
+        item.checked = false;
+      });
+      // 不给点掉全部难度
+      if (this.checked == false) {
+        this.checked = true;
       }
     });
-  });
-  //#endregion
 
-  //#region 分类选择
-  // 点了全部分类就把别的分类取消掉
-  getEl('.cat-label.all input')[0].addEventListener('click', function () {
-    getEl('.cat-label:not(.all) input').forEach(item => {
-      item.checked = false;
+    // 点了其他就把全部取消掉
+    getEl(other).forEach(item => {
+      item.addEventListener('click', () => {
+        if (getEl(`${other}:checked`).length != 0) {
+          getEl(all)[0].checked = false;
+        } else {
+          // 如果难度被全部取消的话就勾上全选
+          getEl(all)[0].checked = true;
+        }
+      });
     });
-    // 不给点掉全部分类
-    if (this.checked == false) {
-      this.checked = true;
-    }
-  });
-
-  // 点了其他分类就把全部分类取消掉
-  getEl('.cat-label:not(.all) input').forEach(item => {
-    item.addEventListener('click', () => {
-      if (getEl('.cat-label:not(.all) input:checked').length != 0) {
-        getEl('.cat-label.all input')[0].checked = false;
-      } else {
-        // 如果分类被全部取消的话就勾上全选
-        getEl('.cat-label.all input')[0].checked = true;
-      }
-    });
-  });
-  //#endregion
+  }
+  多项选择处理('.rank-label.all input', '.rank-label:not(.all) input');
+  多项选择处理('.cat-label.all input', '.cat-label:not(.all) input');
+  多项选择处理('.songver-label.all input', '.songver-label:not(.all) input');
 
   //#region 判断等级
   // 把这部分提取出来就好写一点
@@ -344,6 +323,14 @@ docReady(() => {
       设置.难度 = ['B', 'A', 'E', 'M', 'R'];
     }
     console.log('设置：', 设置);
+    // 单独处理版本
+    设置.版本 = [];
+    getEl('.songver-label input:checked').forEach(item => {
+      设置.版本.push(item.value);
+    });
+    if (设置.版本.length == 0) {
+      设置.版本[0] = 'all';
+    }
 
     //#region 筛歌部分
     let 原始歌单 = 载入的JSON[设置.歌单].曲目列表;
@@ -368,10 +355,17 @@ docReady(() => {
       }
     });
 
-    // 最后筛一遍分类
+    // 筛一遍分类
     if (设置.分类 && 设置.分类 != 'all') {
       抽奖歌单 = 抽奖歌单.filter(被选中的歌 => {
         return 设置.分类.includes(被选中的歌.分类);
+      });
+    }
+
+    // 筛一遍版本
+    if (设置.版本 && 设置.版本 != 'all') {
+      抽奖歌单 = 抽奖歌单.filter(被选中的歌 => {
+        return 设置.版本.includes(被选中的歌.版本);
       });
     }
     //#endregion
@@ -423,6 +417,17 @@ docReady(() => {
     getEl('#setting-category').textContent = tempArr.join('、');
 
     tempArr = [];
+    if (设置.版本[0] != 'all') {
+      设置.版本.forEach(item => {
+        tempArr.push(item);
+      });
+      console.log('版本：', tempArr);
+    } else {
+      tempArr[0] = '全版本';
+    }
+    getEl('#setting-songver').textContent = tempArr.join('、');
+
+    tempArr = [];
     if (设置.难度[0] != 'all') {
       设置.难度.forEach(item => {
         tempArr.push(`<span class="${item}">${item}</span>`);
@@ -458,6 +463,13 @@ docReady(() => {
       getEl('#type').parentNode.classList.add('DX');
     } else {
       getEl('#type').parentNode.classList.remove('DX');
+    }
+
+    if (设置.版本 && 设置.版本 != 'all') {
+      getEl('#songver-show').classList.add('show');
+      getEl('#songver').innerText = 抽到的歌.版本;
+    } else {
+      getEl('#songver-show').classList.remove('show');
     }
 
     for (const [难度] of Object.entries(抽到的歌.等级)) {
@@ -519,6 +531,7 @@ docReady(() => {
       console.log(抽到的歌);
       展示内容(抽到的歌);
 
+      getEl('#songver-show').classList.remove('show');
       getEl('.table-lv-num').forEach(el => {
         el.classList.remove('current');
       });

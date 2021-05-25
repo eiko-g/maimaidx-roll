@@ -36,6 +36,10 @@
       <h3 id="title" class="song-title" lang="ja-jp">油婶么呢？</h3>
       <p class="song-info">
         <span id="category" class="song-cat">分类</span>
+        <span id="songver-show" class="songver-show">
+          /
+          <span id="songver">所在版本</span>
+        </span>
       </p>
       <table class="table-lv">
         <thead>
@@ -61,7 +65,7 @@
 
     <div class="setting-info">
       <p>
-        <b>难度</b>：
+        <b>抽选等级</b>：
         [<span id="setting-rank" class="setting-rank">难度</span>]
         <span id="setting-lv">未设置</span>
       </p>
@@ -70,7 +74,11 @@
         <span id="setting-category">全分类</span>
       </p>
       <p>
-        <b>歌单选择</b>：
+        <b>抽选版本</b>：
+        <span id="setting-songver">全版本</span>
+      </p>
+      <p>
+        <b>歌单版本</b>：
         <span id="setting-songlist">未设置</span>
       </p>
     </div>
@@ -84,7 +92,7 @@
     </div>
 
     <div class="footer">
-      <p>ver 0.22-20210519.03</p>
+      <p>ver 0.30-20210526.01</p>
       <p>
         <a href="https://github.com/eiko-g/maimaidx-roll" target="_blank" rel="noopener noreferrer">
           GayHub
@@ -195,6 +203,91 @@
               <input type="checkbox" id="lv-max-plus" name="最高等级带加号" class="option-check" />
               最高等级带 + 号
             </label>
+          </div>
+
+          <div class="option-block-songver">
+            <h3 class="option-title">版本选择</h3>
+            <div class="songver-options">
+              <label for="songver-all" class="songver-label all">
+                <input type="checkbox" name="版本" id="songver-all" value="all" checked="checked">
+                <span class="inner">全部</span>
+              </label>
+
+              <label for="songver-无印" class="songver-label 无印">
+                <input type="checkbox" name="版本" id="songver-无印" value="无印">
+                <span class="inner">无印</span>
+              </label>
+
+              <label for="songver-无印Plus" class="songver-label 无印Plus">
+                <input type="checkbox" name="版本" id="songver-无印Plus" value="无印+">
+                <span class="inner">无印+</span>
+              </label>
+
+              <label for="songver-绿" class="songver-label 绿">
+                <input type="checkbox" name="版本" id="songver-绿" value="绿">
+                <span class="inner">绿</span>
+              </label>
+
+              <label for="songver-绿Plus" class="songver-label 绿Plus">
+                <input type="checkbox" name="版本" id="songver-绿Plus" value="绿+">
+                <span class="inner">绿+</span>
+              </label>
+
+              <label for="songver-橙" class="songver-label 橙">
+                <input type="checkbox" name="版本" id="songver-橙" value="橙">
+                <span class="inner">橙</span>
+              </label>
+
+              <label for="songver-橙Plus" class="songver-label 橙Plus">
+                <input type="checkbox" name="版本" id="songver-橙Plus" value="橙+">
+                <span class="inner">橙+</span>
+              </label>
+
+              <label for="songver-粉" class="songver-label 粉">
+                <input type="checkbox" name="版本" id="songver-粉" value="粉">
+                <span class="inner">粉</span>
+              </label>
+
+              <label for="songver-粉Plus" class="songver-label 粉Plus">
+                <input type="checkbox" name="版本" id="songver-粉Plus" value="粉+">
+                <span class="inner">粉+</span>
+              </label>
+
+              <label for="songver-紫" class="songver-label 紫">
+                <input type="checkbox" name="版本" id="songver-紫" value="紫">
+                <span class="inner">紫</span>
+              </label>
+
+              <label for="songver-紫Plus" class="songver-label 紫Plus">
+                <input type="checkbox" name="版本" id="songver-紫Plus" value="紫+">
+                <span class="inner">紫+</span>
+              </label>
+
+              <label for="songver-奶" class="songver-label 奶">
+                <input type="checkbox" name="版本" id="songver-奶" value="奶">
+                <span class="inner">奶</span>
+              </label>
+
+              <label for="songver-奶Plus" class="songver-label 奶Plus">
+                <input type="checkbox" name="版本" id="songver-奶Plus" value="奶+">
+                <span class="inner">奶+</span>
+              </label>
+
+              <label for="songver-FiNALE" class="songver-label FiNALE">
+                <input type="checkbox" name="版本" id="songver-FiNALE" value="FiNALE">
+                <span class="inner">FiNALE</span>
+              </label>
+
+              <label for="songver-DX" class="songver-label DX">
+                <input type="checkbox" name="版本" id="songver-DX" value="DX">
+                <span class="inner">DX</span>
+              </label>
+
+              <label for="songver-DX2021" class="songver-label DX2021">
+                <input type="checkbox" name="版本" id="songver-DX2021" value="DX2021">
+                <span class="inner">DX2021</span>
+              </label>
+            </div>
           </div>
         </div>
 

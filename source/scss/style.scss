@@ -107,6 +107,7 @@ a {
       margin: 0;
     }
     .song-info {
+      font-size: 14px;
       color: #333;
       line-height: 1.5;
       margin: 0;
@@ -125,6 +126,13 @@ a {
         }
         &.R {
           background-color: $color-R;
+        }
+      }
+
+      .songver-show {
+        display: none;
+        &.show {
+          display: inline;
         }
       }
     }
@@ -180,6 +188,7 @@ a {
   .setting-info {
     text-align: center;
     color: #333;
+    font-size: 12px;
     b {
       color: #000;
     }
@@ -463,6 +472,34 @@ a {
           border: 3px solid #999;
           &:focus {
             border-color: #259bc6;
+          }
+        }
+      }
+
+      .option-block-songver {
+        margin: 1em auto;
+        .songver-options {
+          display: flex;
+          flex-wrap: wrap;
+          .songver-label {
+            user-select: none;
+            margin: 5px;
+            &:hover {
+              cursor: pointer;
+            }
+            input[type="checkbox"] {
+              display: none;
+            }
+            .inner {
+              display: block;
+              border: 3px solid #ccc;
+              padding: 5px;
+            }
+
+            input:checked ~ .inner {
+              color: #fb6099;
+              border-color: #fb6099;
+            }
           }
         }
       }
