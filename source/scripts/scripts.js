@@ -107,7 +107,7 @@ docReady(() => {
     抽奖歌单 = [],
     歌单名 = {
       // 'maimaidxplus': 'maimaiDX+ 日版',
-      'maimaidxCN': '舞萌DX ver.CH1.11-B',
+      'maimaidxCN': '舞萌DX ver.CH1.11-C',
       'test': '测试用'
     },
     分类名 = {
@@ -153,7 +153,7 @@ docReady(() => {
       }
     });
   }
-  载入歌单('maimaidxCN', 2021071201);
+  载入歌单('maimaidxCN', 2021091801);
   // 载入歌单('test', 1111);
   //#endregion
 
