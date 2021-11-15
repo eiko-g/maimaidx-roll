@@ -2,7 +2,7 @@
 
 毕竟 maimaiDX 删了随机选歌功能，所以就自己写了个来用。
 
-[点击试用](https://roll.maimoe.in/maimai)
+**现在已经开始用 Vue 写了**，新项目地址：[https://github.com/eiko-g/maimaidx-roll-vue](https://github.com/eiko-g/maimaidx-roll-vue)
 
 ---
 
